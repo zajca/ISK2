@@ -1,0 +1,51 @@
+{
+  "name": "Informacni-system-knihkupectvi2",
+  "version": "0.0.0",
+  "authors": [
+    "zajca <zajca@zajca.cz>"
+  ],
+  "description": "DP",
+  "main": "?",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+   "devDependencies": {
+    "lesshat": "~2.0.*",
+    "bootstrap": "~3.1.*"
+  },
+  "dependencies": {
+    "scriptjs": "~2.5.2",
+    "angular": "=1.2.16",
+    "angular-sanitize": "=1.2.16",
+    "angular-touch": "=1.2.16",
+    "angular-animate": "=1.2.16",
+    "angular-ui-router": "0.2.10",
+    "angular-ui-utils": "*",
+    "angular-carousel": "~0.2.2",
+    "angular-ui-layout": "bower",
+    "angular-tree-control": "~0.1.4",
+    "angular-xeditable": "~0.1.8",
+    "angular-local-storage": "~0.0.3",
+    "ngAnimate-animate.css": "~0.1.1",
+    "angular-translate": "~2.0.1",
+    "angular-resource": "~1.2.16",
+    "angular-strap": "~2.0.2",
+    "angular-loader": "~1.2.16",
+    "angular-ui-ace": "bower",
+    "ace-builds": "~1.1.3",
+    "angular-motion": "~0.3.2",
+    "font-awesome": "~4.0.3",
+    "ng-pdfviewer": "~0.2.1",
+    "animate.css": "~3.1.1",
+    "json2": "*"
+  }
+}

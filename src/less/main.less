@@ -1,0 +1,97 @@
+@import "common/reset";
+//@import "vendor/font-awesome/less/variables";
+//@fa-font-path:"vendor/font-awesome/fonts";
+//@import "vendor/";
+//@import "vendor/font-awesome/less/path";
+//@import "vendor/font-awesome/less/core";
+//@import "vendor/font-awesome/less/larger";
+//@import "vendor/font-awesome/less/fixed-width";
+//@import "vendor/font-awesome/less/list";
+//@import "vendor/font-awesome/less/bordered-pulled";
+//@import "vendor/font-awesome/less/spinning";
+//@import "vendor/font-awesome/less/rotated-flipped";
+//@import "vendor/font-awesome/less/stacked";
+//@import "vendor/font-awesome/less/icons";
+
+@import "vendor/font-awesome/less/font-awesome";
+@fa-font-path:"/vendor/font-awesome/fonts";
+@import "vendor/lesshat/build/lesshat-prefixed";
+
+/*
+BOOTSTRAP
+*/
+//ALL
+//@import "./../vendor/bootstrap/less/bootstrap";
+/*MODULES*/
+@import "vendor/bootstrap/less/variables";
+@import "vendor/bootstrap/less/utilities";
+@import "variables";
+@import "vendor/bootstrap/less/mixins";
+// Reset
+@import "vendor/bootstrap/less/normalize";
+@import "vendor/bootstrap/less/print";
+// Core CSS
+@import "vendor/bootstrap/less/scaffolding";
+@import "vendor/bootstrap/less/type";
+@import "vendor/bootstrap/less/code";
+@import "vendor/bootstrap/less/grid";
+@import "vendor/bootstrap/less/tables";
+@import "vendor/bootstrap/less/forms";
+@import "vendor/bootstrap/less/buttons";
+//COMPONENTS
+@import "vendor/bootstrap/less/alerts";
+@import "vendor/bootstrap/less/dropdowns";
+@import "vendor/bootstrap/less/popovers";
+@import "vendor/bootstrap/less/navbar";
+@import "vendor/bootstrap/less/navs";
+@import "vendor/bootstrap/less/close";
+@import "vendor/bootstrap/less/modals";
+
+//ANGULARSTRAP-ANIMATION
+@import "vendor/angular-motion/src/flip/flip";
+@import "vendor/angular-motion/src/fade-and-slide/fade-and-slide";
+//@import "vendor/angular-motion/src/fade-and-scale/fade-and-scale";
+//@import "vendor/angular-motion/src/slide/slide";
+//@import (less) "vendor/Bootflat/bootflat/css/bootflat.css";
+@import (less) "vendor/animate.css/animate.css";
+
+//@import "sprites";
+@import "../common/spinner";
+@import "../storeIndex/book.less";
+@import "common/browserAlerts";
+@import "common/modal";
+@import "../common/slider/slider";
+
+//CAROUSEL
+@import (less) "vendor/angular-carousel/dist/angular-carousel.css";
+
+html {
+//  background: url('images/bg.jpg') no-repeat center top;
+}
+
+@font-face {
+  .lh-font-face(MyriadProSemibold, ~'fonts/myriadpro-semibold', bold, italic);
+}
+@font-face {
+  .lh-font-face(MyriadProSemiboldItalic, ~'fonts/myriadpro-semiboldit', bold);
+}
+body{
+  font-family: 'MyriadProSemibold';
+  background-color: transparent;
+  color: #000000;
+}
+
+h1{
+  color: @color_gold;
+  font-size:48px;
+  text-transform: uppercase;
+  &:first-letter{
+    font-size: 55px;
+  }
+}
+.navbar{
+  margin-bottom:0;
+}
+
+@import "menu";
+@import "../editor/editor";

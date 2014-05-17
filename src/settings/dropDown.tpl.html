@@ -1,0 +1,12 @@
+<ul tabindex="-1" class="dropdown-menu" role="menu" ng-controller="dropDownCtrl">
+  <li role="presentation" ng-class="{divider: item.divider}" ng-repeat="item in content" >
+    <a role="menuitem" tabindex="-1" ui-sref="{{item.href}}" ng-if="!item.divider && item.href">
+      <i class="fa" ng-class="item.icon"></i>
+      <span translate="{{item.text}}"></span>
+    </a>
+    <a role="menuitem" tabindex="-1" href="javascript:void(0)" data-animation="am-flip-x" ng-click="$hide();$eval({{item.modal}});" ng-if="!item.divider && item.modal">
+      <i class="fa" ng-class="item.icon"> </i>
+      <span translate="{{item.text}}"></span>
+    </a>
+  </li>
+</ul>

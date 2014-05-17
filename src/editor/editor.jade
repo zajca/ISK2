@@ -1,0 +1,16 @@
+div#index(ng-init="init()")
+.row
+  .col-lg-2
+    treecontrol.tree-light(tree-model='treedata', node-children='children', on-selection='showSelected(node)', selected-node='node2')
+      | {{node.label}}
+  .col-lg-5(ng-class="{smaller:showPrew}")
+    <div ui-ace="{useWrapMode : true,showGutter: false,theme:'twilight',mode: 'tex',onLoad: aceLoaded,onChange: aceChanged}"></div>
+  .col-lg-5(ng-class="{bigger:showPrew}")
+    nav
+      button.btn(ng-click="viewer.prevPage()").
+        <
+      button.btn(ng-click="viewer.nextPage()").
+        >
+      //span Page:{{currentPage}}/{{totalPages}}
+    //ng-pdf(template-url='/build/partials/editor/pdf.html' ng-cloak)
+    pdfviewer#viewer(src="{{pdfUrl}}" on-page-load='pageLoaded(page,total)' load-progress='loadProgress(loaded, total, state)' ng-cloak)

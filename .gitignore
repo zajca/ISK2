@@ -1,0 +1,8 @@
+vendor
+*.psd
+build
+node_modules
+.idea
+.directory
+tmp
+assets

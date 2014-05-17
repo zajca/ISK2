@@ -1,0 +1,67 @@
+{
+  "name": "Informacni-system-knihkupectvi2",
+  "version": "0.0.0",
+  "description": "DP",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "gulp dev"
+  },
+  "author": "Martin Zajíc <zajca@zajca.cz>",
+  "license": "ISC",
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "jade": "^1.3.1",
+    "joi": "^3.1.0",
+    "moment": "^2.6.0",
+    "mongoose": "^3.8.9",
+    "mongoose-hash": "^0.2.0",
+    "password-filter": "^0.1.0"
+  },
+  "devDependencies": {
+    "angular": "^1.2.16",
+    "angular-ui-router": "^0.2.10",
+    "brfs": "^1.1.1",
+    "browserify": "^4.1.4",
+    "browserify-shim": "^3.5.0",
+    "coffeeify": "^0.6.0",
+    "css-sprite": "^0.7.0-beta3",
+    "envify": "^1.2.1",
+    "gulp": "^3.6.2",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-changed": "^0.3.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-coffeelint": "^0.3.2",
+    "gulp-debug": "^0.3.0",
+    "gulp-if": "^1.2.0",
+    "gulp-imagemin": "^0.5.0",
+    "gulp-jade": "^0.5.0",
+    "gulp-less": "^1.2.3",
+    "gulp-livereload": "^1.5.0",
+    "gulp-minify-css": "^0.3.4",
+    "gulp-nodemon": "^1.0.2",
+    "gulp-notify": "^1.2.5",
+    "gulp-plumber": "^0.6.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-rev": "^0.3.2",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "brfs",
+      "envify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "restangular": {
+      "depends": [
+        "angular",
+        "lodash:_"
+      ]
+    }
+  },
+  "browser": {
+    "Hammer": "./vendor/hammerjs/hammer.js"
+  }
+}

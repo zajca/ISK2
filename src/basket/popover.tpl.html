@@ -1,0 +1,25 @@
+<div class="popover" style="width:500px;left: -134px;max-width:400px;">
+  <div class="arrow"></div>
+    <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+    <div class="popover-content">
+      <div class="panel" ng-controller="basketCtrl" ng-init="update()">
+        <div class="row">
+          <div class="col-md-8">
+            <ul>
+              <li ng-repeat="item in items" class="row">
+                <div class="col-md-8">{{item.name}}</div>
+                <button class="btn btn-primary col-md-1 btn-xs" ng-click="$basket.dec($index);update();"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-default col-md-1 btn-xs">{{item.n}}</button>
+                <button class="btn btn-success col-md-1 btn-xs" ng-click="$basket.inc($index);update();"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-danger col-md-1 btn-xs" ng-click="$basket.removeByIndex($index);update();"><i class="fa fa-times"></i></button></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <div>Počet položek: {{$basket.sum().n}}</div>
+            <div>Celková cena: {{$basket.sum().price}}</div>
+            <button class="btn btn-warning" ng-click="$basket.clear();$hide();">zrušit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

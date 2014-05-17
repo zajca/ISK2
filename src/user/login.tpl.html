@@ -1,0 +1,21 @@
+<div class="popover">
+  <div class="arrow"></div>
+    <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+    <div class="popover-content">
+      <div class="panel">
+        <form name="form" method="post" action="/signup" novalidate="novalidate">
+          <div class="form-group">
+            <label for="email" class="control-label">{{'EMAIL'|translate}}</label>
+            <input type="email" ng-model="email" name="email" id="email" placeholder="{{'EMAIL'|translate}}" required="required" class="form-control" autofocus="autofocus"/>
+            <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.email" class="help-block">{{'EMAIL_IS_NOT_VALID'|translate}}</span>
+          </div>
+          <div class="form-group">
+            <label for="password" class="control-label">{{'PASSWORD'|translate}}</label>
+            <input type="password" name="password" id="password" ng-model="password" required="required" match="verification" class="form-control"/>
+            <span ng-show="form.password.$dirty &amp;&amp; form.password.$error.required" class="help-block">{{'PLEASE_ENTER_PASS'|translate}}</span>
+          </div>
+          <input type="submit" value="{{'SIGN_IN_BUTTON'|translate}}" ng-disabled="form.$invalid" class="btn btn-primary"/>
+        </form>
+      </div>
+    </div>
+  </div>

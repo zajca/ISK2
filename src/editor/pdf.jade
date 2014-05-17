@@ -1,0 +1,16 @@
+nav(ng-class="{'pdf-controls fixed': scroll > 100, 'pdf-controls': scroll <= 100}")
+  button.btn(ng-click="goPrevious()").
+    <
+  button.btn(ng-click="goNext()").
+    >
+  button.btn(ng-click="zoomIn()").
+    +
+  button.btn(ng-click="zoomOut()").
+    -
+  button.btn(ng-click="rotate()").
+    90
+  span Page:
+    input(type="text" min=1 ng-model="pageNum")
+  span {{pageCount}}
+hr
+canvas#pdf-canvas.rotate0
