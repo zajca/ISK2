@@ -24,7 +24,7 @@ m.factory "userApi",[
         FlashService.done(n)
         FlashService.show($translate("FLASH_REQUEST_FOR_REGISTER_USER_DONE"))
       ,(res)->
-        FlashService.err(id,res.flash)
+        FlashService.err(n,res.flash)
       http
 
     updateUser:(user)->
@@ -36,6 +36,6 @@ m.factory "userApi",[
       http.then (res)->
         FlashService.done(n)
       ,(res)->
-        FlashService.err(id,res.flash)
+        FlashService.err(n,res.flash)
       http
 ]

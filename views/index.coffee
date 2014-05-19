@@ -15,7 +15,6 @@ create  = (request, reply) ->
 admin   = (request, reply) ->
   reply.view "admin"
 
-
 ###*
  * ROUTER
 ###
@@ -25,6 +24,19 @@ module.exports =
       method: "GET"
       path: "/"
       handler: store
+    server.route
+      method: "GET"
+      path: "/login"
+      handler: store
+    server.route
+      method: "GET"
+      path: "/book/{path*}"
+      handler: store
+    server.route
+      method: "GET"
+      path: "/user/{path*}"
+      handler: store
+
 
     server.route
       method: "GET"

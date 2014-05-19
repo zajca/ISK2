@@ -1,9 +1,9 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
 generateHash = require 'mongoose-hash'
-# Promise = require('bluebird')
-password = require(process.cwd() + "/middleware/auth/password")
-config = require(process.cwd() + "/middleware/auth/config")
+crypto = require "crypto"
+config  = require(process.cwd()+"/config").getConfig(process.env.ENV).app
+jwt = require('jsonwebtoken')
 
 ###
 SCHEMA
@@ -25,22 +25,12 @@ User = new Schema
   surname:
     type:String
     required:true
-  tokenMaxAge:
-    type: Number
-    required: true
-    default: config.options.maxAge
-  cookieTokenSalt:
-    type: String
-    required: true
-  storageTokenSalt:
-    type: String
-    required: true
   passwordSalt:
     type: String
-    required: true
   password:
     type: String
     required: true
+  token: String
   address:
     [
       state: String
@@ -113,36 +103,35 @@ User = new Schema
     default: Date.now
 
 # PLUGINS
-User.plugin generateHash,
-  field: "cookieTokenSalt"
-  size: 64
+User.pre "save", (next) ->
+  user = this
+  salt = crypto.randomBytes(128).toString("base64")
+  user.passwordSalt = salt
+  crypto.pbkdf2 user.password, salt, 10000, 512, (err, dk) ->
+    user.password = Buffer(dk, 'binary').toString('hex')
+    next()
 
-User.plugin generateHash,
-  field: "storageTokenSalt"
-  size: 64
+User.methods.validPassword = (password,cb) ->
+  console.log this.password,this.passwordSalt
+  crypto.pbkdf2 password, this.passwordSalt, 10000, 512, (err, dk) =>
+    console.log this.password
+    if this.password == Buffer(dk, 'binary').toString('hex')
+      cb(true)
+    else
+      cb(false)
 
-User.plugin generateHash,
-  field: "passwordSalt"
-  size: 64
+User.methods.createToken = (cb)->
+  token = jwt.sign(
+    name: this.name
+    surname:this.surname
+    email:this.email
+  ,
+    config.privateKey
+  )
+  this.token = token
+  cb(token)
 
-User.plugin password,
-  field: "password"
-
-
-# User.addImg = (file, options, fn) ->
-#   gridfs.putFile file.path, file.filename, options, (err, result) ->
-#     this.img = result
-#     this.save fn
-
-# User.getImg = (file, options, fn) ->
-#   gridfs.get req.params.id, (err, file) ->
-#     res.header "Content-Type", file.type
-#     res.header "Content-Disposition", "attachment; filename=#{file.filename}"
-#     file.stream(true).pipe(res)
-
-User.create = ->
-
-User.canDownloadBook = (id, options, fn) ->
+User.methods.canDownloadBook = (id, options, fn) ->
   if id in this.payed_books
     true
 

@@ -18,14 +18,14 @@
     "test",
     "tests"
   ],
-   "devDependencies": {
+  "devDependencies": {
     "lesshat": "~2.0.*",
     "bootstrap": "~3.1.*"
   },
   "dependencies": {
     "scriptjs": "~2.5.2",
     "angular": "=1.2.16",
-    "angular-sanitize": "=1.2.16",
+    "angular-sanitize": "~1.2.16",
     "angular-touch": "=1.2.16",
     "angular-animate": "=1.2.16",
     "angular-ui-router": "0.2.10",
@@ -46,6 +46,9 @@
     "font-awesome": "~4.0.3",
     "ng-pdfviewer": "~0.2.1",
     "animate.css": "~3.1.1",
-    "json2": "*"
+    "json2": "*",
+    "auth0-angular": "~0.4.0",
+    "angular-cookies": "~1.2.16",
+    "auth0.js": "~2.1.4"
   }
 }

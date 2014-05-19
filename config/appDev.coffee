@@ -8,3 +8,4 @@ module.exports =
   app:
     "port":3000
     "socket":3001
+    "privateKey":"dasdasdasdasdas"

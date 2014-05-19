@@ -16,7 +16,7 @@ gulp.task('browserify_dev', function(){
     return browserify({
         entries: ['./src/app/'+element+'.coffee'],
         extensions: ['.coffee'],
-        transform: ["coffeeify","brfs","envify","browserify-shim"]
+        transform: ["coffeeify","brfs","envify","browserify-shim","debowerify"]
     })
     .bundle({debug: true})
     .on('error', handleErrors)

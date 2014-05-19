@@ -10,7 +10,7 @@ Branch = new Schema
     required: true
   supervisor:
     type: Schema.Types.ObjectId
-    ref: "User"    
+    ref: "User"
   employes:[
     {
       type: Schema.Types.ObjectId

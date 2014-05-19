@@ -11,9 +11,9 @@ module.exports = ["$httpProvider",($httpProvider) ->
 
       $log.debug "REQUEST",config
 
-      if config.method == "POST" or config.method == "PUT"
-        $log.debug csrfService.token
-        config.headers["X-CSRF-Token"] = csrfService.token
+      # if config.method == "POST" or config.method == "PUT"
+      #   $log.debug csrfService.token
+      #   config.headers["X-CSRF-Token"] = csrfService.token
 
       if config.method == "POST"
         $log.debug "POST"

@@ -2,6 +2,13 @@
  * LOAD MODULES
 ###
 Hapi    = require("hapi")
+SocketIO= require("socket.io")
+jwt = require('jsonwebtoken')
+
+###*
+ * AUTH
+###
+privateKey = 'YourApplicationsPrivateKey';
 
 
 ###*
@@ -26,20 +33,29 @@ app =
       views:
         engines:
           jade: "jade"
-        path: __dirname + "/build/partials"
+        # path: __dirname + "/build/partials"
         path: __dirname + "/views"
         compileOptions:
           pretty: true
 
     server = new Hapi.Server(config.app.port, options)
-
     ###*
-     * Nastaveni routeru
+     * JWT AUTH
     ###
-    require("./config").router(server)
-    require("./routes").load(server)
-    views.router(server)
+    server.pack.require "hapi-auth-jwt", (err) ->
+      server.auth.strategy('token', 'jwt', { key: config.app.privateKey,  validateFunc: require("./routes").validate })
 
-    server.start()
+      ###*
+       * Nastaveni routeru
+      ###
+      require("./config").router(server)
+      require("./routes").load(server)
+      views.router(server)
+
+      server.start(->
+        io = SocketIO.listen(server.listener)
+      )
+
+    # console.log server.table()
 
 app.main()

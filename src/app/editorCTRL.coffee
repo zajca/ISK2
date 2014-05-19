@@ -3,6 +3,7 @@ module = angular.module("editor.ctrl", [])
 
 module.controller "EditorCtrl", ["$scope","$state","$rootScope",($scope,$state,$rootScope) ->
   $scope.init =->
+    # console.log auth
 #    API.csrf()
 
   $scope.menu=[

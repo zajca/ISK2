@@ -1,11 +1,15 @@
 #VENDOR
+# auth0 = require "auth0-js"
 require "angular"
-# require "./../../vendor/angular/angular"
+# require "auth0"
+# require "./../../vendor/anguslar/angular"
 require "angular-ui-router"
 # require "lodash"
 # require "./../../vendor/restangular/dist/restangular"
 require "./../../vendor/angular-animate/angular-animate"
 require "./../../vendor/angular-touch/angular-touch"
+require "./../../vendor/angular-cookies/angular-cookies"
+require "./../../vendor/angular-sanitize/angular-sanitize"
 require "./../../vendor/angular-translate/angular-translate"
 require "./../i10n/cs_cz"
 require "./../../vendor/angular-carousel/dist/angular-carousel"
@@ -13,6 +17,7 @@ require "./../../vendor/angular-strap/dist/angular-strap"
 require "./../../vendor/angular-strap/dist/angular-strap.tpl"
 require "./../../vendor/angular-xeditable/dist/js/xeditable"
 require "./../../vendor/ngAnimate-animate.css/animate"
+# require "./../../vendor/auth0-angular/src/auth0-angular"
 
 #COMMON
 require "./../common/device"
@@ -32,12 +37,14 @@ require "./../user"
 require "./../settings"
 require "./../basket"
 require "./../book"
+require "./../auth"
 #i18n
 require "./../i18n"
 
 module = angular.module("store", [
   "ui.router"
   "ngAnimate"
+  "ngSanitize"
   "ngTouch"
   "bindHtmlUnsafe"
   "device"
@@ -60,6 +67,7 @@ module = angular.module("store", [
   "settings"
   "ngAnimate-animate.css"
   "book"
+  "auth"
 ])
 
 module.constant "CONF", require("./store_dev.json")
@@ -67,11 +75,11 @@ module.constant "CONF", require("./store_dev.json")
 module.run (editableOptions) ->
   editableOptions.theme = 'bs3'
 
-module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF",($urlRouterProvider,$locationProvider,$logProvider,conf)->
-  $urlRouterProvider.otherwise "/"
-  $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
-  $logProvider.debugEnabled conf.debug
-  # Restangular.setBaseUrl("api/v1")
+module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF",
+  ($urlRouterProvider,$locationProvider,$logProvider,conf)->
+    $urlRouterProvider.otherwise "/"
+    $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
+    $logProvider.debugEnabled conf.debug
 ]
 
 module.config require("./../common/httpInterceptor")

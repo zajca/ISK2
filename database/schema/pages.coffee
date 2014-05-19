@@ -1,6 +1,6 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
-url = require(process.cwd() + "/middleware/filters/url")
+url = require(process.cwd() + "/filters/url")
 
 ###
 SCHEMA

@@ -1,5 +1,7 @@
 'use strict'
-
+db = require(process.cwd() + "/database")
+User = db.user
+Book = db.book
 ###*
  * ME METHODS
 ###

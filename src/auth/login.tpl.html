@@ -1,0 +1,14 @@
+<form name="form" method="post" novalidate="novalidate">
+  <div class="form-group">
+    <label for="email" class="control-label">{{'EMAIL'|translate}}</label>
+    <input type="email" ng-model="user.email" name="email" id="email" placeholder="{{'EMAIL'|translate}}" required="required" class="form-control" autofocus="autofocus"/>
+    <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.email" class="help-block">{{'EMAIL_IS_NOT_VALID'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="password" class="control-label">{{'PASSWORD'|translate}}</label>
+    <input type="password" name="password" id="password" ng-model="user.password" required="required" match="verification" class="form-control"/>
+    <span ng-show="form.password.$dirty &amp;&amp; form.password.$error.required" class="help-block">{{'PLEASE_ENTER_PASS'|translate}}</span>
+  </div>
+  {{form|json}}
+  <input type="submit" value="{{'SIGN_IN_BUTTON'|translate}}" class="btn btn-primary" ng-click="login(user)"/>
+</form>
