@@ -46,7 +46,7 @@ Book = new Schema
       author:
         type: String
         require: true
-      coment:
+      comment:
         type: String
         require: true
       user:

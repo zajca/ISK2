@@ -5,7 +5,6 @@ GridStore = mongoose.mongo.GridStore
 Grid      = mongoose.mongo.Grid
 ObjectID = mongoose.mongo.BSONPure.ObjectID
 
-
 exports.get = (id, fn) ->
   db = mongoose.connection.db
   id = new ObjectID(id)
