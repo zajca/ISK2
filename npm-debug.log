@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.4
+3 info using node@v0.10.26
+4 warn package.json Informacni-system-knihkupectvi2@0.0.0 No repository field.
+5 warn package.json Informacni-system-knihkupectvi2@0.0.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/home/zajca/public_html/ISK2',
+7 verbose install   [ 'auth0',
+7 verbose install     'cabrel-hapi-json',
+7 verbose install     'coffee-script',
+7 verbose install     'debowerify',
+7 verbose install     'gridfs-stream',
+7 verbose install     'hapi',
+7 verbose install     'hapi-auth-jwt',
+7 verbose install     'jade',
+7 verbose install     'joi',
+7 verbose install     'jsonwebtoken',
+7 verbose install     'moment',
+7 verbose install     'mongoose',
+7 verbose install     'mongoose-hash',
+7 verbose install     'password-filter',
+7 verbose install     'socket.io',
+7 verbose install     'angular',
+7 verbose install     'angular-ui-router',
+7 verbose install     'brfs',
+7 verbose install     'browserify',
+7 verbose install     'browserify-shim',
+7 verbose install     'coffeeify',
+7 verbose install     'css-sprite',
+7 verbose install     'envify',
+7 verbose install     'bower',
+7 verbose install     'gulp',
+7 verbose install     'gulp-autoprefixer',
+7 verbose install     'gulp-changed',
+7 verbose install     'gulp-clean',
+7 verbose install     'gulp-coffeelint',
+7 verbose install     'gulp-debug',
+7 verbose install     'gulp-if',
+7 verbose install     'gulp-imagemin',
+7 verbose install     'gulp-jade',
+7 verbose install     'gulp-less',
+7 verbose install     'gulp-livereload',
+7 verbose install     'gulp-minify-css',
+7 verbose install     'gulp-nodemon',
+7 verbose install     'gulp-notify',
+7 verbose install     'gulp-plumber',
+7 verbose install     'gulp-rename',
+7 verbose install     'gulp-rev',
+7 verbose install     'vinyl-source-stream' ] ]
+8 info preinstall Informacni-system-knihkupectvi2@0.0.0
+9 verbose unsafe-perm in lifecycle true
+10 info Informacni-system-knihkupectvi2@0.0.0 Failed to exec preinstall script
+11 error Informacni-system-knihkupectvi2@0.0.0 preinstall: `gulp||npm install -g gulp`
+11 error Exit status 3
+12 error Failed at the Informacni-system-knihkupectvi2@0.0.0 preinstall script.
+12 error This is most likely a problem with the Informacni-system-knihkupectvi2 package,
+12 error not with npm itself.
+12 error Tell the author that this fails on your system:
+12 error     gulp||npm install -g gulp
+12 error You can get their info via:
+12 error     npm owner ls Informacni-system-knihkupectvi2
+12 error There is likely additional logging output above.
+13 error System Linux 3.14.1-1-ARCH
+14 error command "node" "/usr/bin/npm" "install"
+15 error cwd /home/zajca/public_html/ISK2
+16 error node -v v0.10.26
+17 error npm -v 1.4.4
+18 error code ELIFECYCLE
+19 verbose exit [ 1, true ]

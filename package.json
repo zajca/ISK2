@@ -4,10 +4,12 @@
   "description": "DP",
   "main": "app.js",
   "scripts": {
-    "test": "gulp dev"
+    "test": "gulp dev",
+    "postinstall": "./node_modules/bower/bin/bower install --config.interactive=false",
+    "postupdate" : "./node_modules/bower/bin/bower update --config.interactive=false"
   },
   "author": "Martin Zajíc <zajca@zajca.cz>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "auth0": "^0.5.0",
     "cabrel-hapi-json": "^0.1.2",
@@ -34,6 +36,7 @@
     "coffeeify": "^0.6.0",
     "css-sprite": "^0.7.0-beta3",
     "envify": "^1.2.1",
+    "bower": "*",
     "gulp": "^3.6.2",
     "gulp-autoprefixer": "0.0.7",
     "gulp-changed": "^0.3.0",
