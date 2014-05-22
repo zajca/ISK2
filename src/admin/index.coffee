@@ -1,4 +1,7 @@
+'use strict'
+
 #VENDOR
+#
 # auth0 = require "auth0-js"
 require "angular"
 # require "auth0"
@@ -25,23 +28,21 @@ require "./../common/flashService"
 require "./../common/preventScrollDirective"
 require "./../common/randomHelper"
 require "./../common/sessionService"
-require "./../common/spinnerService"
+# require "./../common/spinnerService"
 require "./../common/titleService"
 require "./../common/bind-html-unsafe"
 require "./../common/matchDirective"
-require "./../common/slider"
+# require "./../common/slider"
+require "./../common/auth"
 #CTRL
-require "./storeCTRL"
-require "./../storeIndex/routes"
-require "./../user"
-require "./../settings"
-require "./../basket"
-require "./../book"
-require "./../auth"
-#i18n
+require "./book"
+require "./stats"
+require "./user"
+
+# #i18n
 require "./../i18n"
 
-module = angular.module("store", [
+module = angular.module("admin", [
   "ui.router"
   "ngAnimate"
   "ngSanitize"
@@ -55,35 +56,32 @@ module = angular.module("store", [
   "pascalprecht.translate"
   "i18n"
   "FlashService"
-  "SpinnerService"
-  "store.ctrl"
-  "store.router"
+  #"SpinnerService"
   "match"
-  "slider"
-  "user"
-  "basket"
   "mgcrea.ngStrap"
   "xeditable"
-  "settings"
   "ngAnimate-animate.css"
-  "book"
   "auth"
+  "user"
+  "book"
+  "stats"
 ])
 
-module.constant "CONF", require("./store_dev.json")
+
+module.constant "CONF", require("./admin_dev.json")
 
 module.run (editableOptions) ->
   editableOptions.theme = 'bs3'
 
 module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF",
   ($urlRouterProvider,$locationProvider,$logProvider,conf)->
-    $urlRouterProvider.otherwise "/"
+    $urlRouterProvider.otherwise "/admin"
     $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
     $logProvider.debugEnabled conf.debug
 ]
-
+module.controller "AdminCtrl", require("./admin.ctrl")
 module.config require("./../common/httpInterceptor")
 
 module.run ["titleService",(titleService) ->
-  titleService.setSuffix " | Store"
+  titleService.setSuffix " | Admin"
 ]

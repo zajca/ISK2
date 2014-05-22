@@ -1,14 +1,11 @@
 'use strict'
 
-m = angular.module("book.router", [])
-
-m.config(
-  ["$stateProvider",($stateProvider) ->
-    $stateProvider.state("book",
-      url: "/book/:id"
+module.exports = ["$stateProvider",($stateProvider) ->
+    $stateProvider.state("user",
+      url: "/user/:id"
       views:
         main:
-          controller: "BookCtrl"
+          controller: "userListCtrl"
           templateUrl: "/build/partials/book/detail.tpl.html"
     )
     # .state("book.edit",
@@ -19,5 +16,3 @@ m.config(
     #       templateUrl: "partials/book/edit.tpl.html"
     # )
   ]
-)
-module.exports = m

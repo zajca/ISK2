@@ -4,7 +4,7 @@ module.exports = [() ->
   scope:true
   replace:false
   restrict: 'A'
-  template:'<a href><i class="fa fa-cog" data-animation="am-flip-x" data-template="/build/partials/settings/dropDown.tpl.html" bs-dropdown="dropdown"></i></a>'
+  template:'<a href><i class="fa fa-cog" data-animation="am-flip-x" data-template="/build/partials/store/settings/dropDown.tpl.html" bs-dropdown="dropdown"></i></a>'
   controller: ["$scope",($scope)->
     $scope.dropdown = [
       {

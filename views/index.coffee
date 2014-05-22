@@ -40,15 +40,15 @@ module.exports =
 
     server.route
       method: "GET"
-      path: "/editor"
+      path: "/editor/{path*}"
       handler: editor
 
     server.route
       method: "GET"
-      path: "/create"
+      path: "/create/{path*}"
       handler: create
 
     server.route
       method: "GET"
-      path: "/admin"
+      path: "/admin/{path*}"
       handler: admin

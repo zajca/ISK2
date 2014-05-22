@@ -1,18 +1,131 @@
 doctype html
-html#ng-app(xmlns:ng='http://angularjs.org', ng-app='app', data-ng-csp='data-ng-csp', lang='cs', dir='ltr', ng-controller='AppCtrl', ng-init='init()')
+html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller='AdminCtrl', ng-init='init()')
   head
-      title
-      style(type='text/css')
-        [ng-cloak] {display: none;}
-      script(type='text/javascript').
-        document.write('<base href="' + document.location + '" />')
-      meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
-      meta(charset='UTF-8')
-      //INJECT:css (js)
-      //END INJECT
+    title
+    style(type='text/css').
+      [ng-cloak] {display: none;}
+    script(type='text/javascript').
+      document.write('<base href="' + document.location + '" />');
+    meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
+    meta(charset='UTF-8')
 
-      //INJECT:js (js)
-      //END INJECT
+    <!--[if lt IE 9]>
+    script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+    <![endif]-->
 
-  body.
-    admin
+    <!--[if lte IE 8]>
+    script(type='text/javascript').
+      document.createElement('ng-include');
+      document.createElement('ng-pluralize');
+      document.createElement('ng-view');
+      document.createElement('ng:include');
+      document.createElement('ng:pluralize');
+      document.createElement('ng:view');
+    <![endif]-->
+  body
+    script(type='text/javascript').
+      var loadTemplate = "<div id='load_G'>\
+          <div id='load_G1' class='load_G'></div>\
+          <div id='load_G2' class='load_G'></div>\
+          <div id='load_G3' class='load_G'></div>\
+          <div id='load_G4' class='load_G'></div>\
+          <div id='load_G5' class='load_G'></div>\
+          <div id='load_G6' class='load_G'></div>\
+          <div id='load_G7' class='load_G'></div>\
+          <div id='load_G8' class='load_G'></div>\
+        <div>";
+      var loadCSS = "#dim{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.7;z-index:1000;background:#000;}\
+        #load_G{position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;width:240px;height:29px}\
+        .load_G{position:absolute;top:0;background-color:#0800F5;width:29px;height:29px;\
+          -moz-animation-name:bounce_load_G;-moz-animation-duration:1.3s;-moz-animation-iteration-count:infinite;-moz-animation-direction:linear;-moz-transform:scale(.3);\
+          -webkit-animation-name:bounce_load_G;-webkit-animation-duration:1.3s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear;-webkit-transform:scale(.3);\
+          -ms-animation-name:bounce_load_G;-ms-animation-duration:1.3s;-ms-animation-iteration-count:infinite;-ms-animation-direction:linear;-ms-transform:scale(.3);\
+          -o-animation-name:bounce_load_G;-o-animation-duration:1.3s;-o-animation-iteration-count:infinite;-o-animation-direction:linear;-o-transform:scale(.3);\
+          animation-name:bounce_load_G;animation-duration:1.3s;animation-iteration-count:infinite;animation-direction:linear;\
+          transform:scale(.3);}\
+        #load_G1{left:0;\
+          -moz-animation-delay:0.52s;-webkit-animation-delay:0.52s;-ms-animation-delay:0.52s;-o-animation-delay:0.52s;animation-delay:0.52s;}\
+        #load_G2{left:30px;\
+        -moz-animation-delay:0.65s;-webkit-animation-delay:0.65s;-ms-animation-delay:0.65s;-o-animation-delay:0.65s;animation-delay:0.65s;}\
+        #load_G3{left:60px;\
+          -moz-animation-delay:0.78s;-webkit-animation-delay:0.78s;-ms-animation-delay:0.78s;-o-animation-delay:0.78s;animation-delay:0.78s;}\
+        #load_G4{left:90px;\
+          -moz-animation-delay:0.91s;-webkit-animation-delay:0.91s;-ms-animation-delay:0.91s;-o-animation-delay:0.91s;animation-delay:0.91s;}\
+        #load_G5{left:120px;\
+          -moz-animation-delay:1.04s;-webkit-animation-delay:1.04s;-ms-animation-delay:1.04s;-o-animation-delay:1.04s;animation-delay:1.04s;}\
+        #load_G6{left:150px;\
+          -moz-animation-delay:1.17s;-webkit-animation-delay:1.17s;-ms-animation-delay:1.17s;-o-animation-delay:1.17s;animation-delay:1.17s;}\
+        #load_G7{left:180px;\
+          -moz-animation-delay:1.3s;-webkit-animation-delay:1.3s;-ms-animation-delay:1.3s;-o-animation-delay:1.3s;animation-delay:1.3s;}\
+        #load_G8{left:210px;\
+          -moz-animation-delay:1.43s;-webkit-animation-delay:1.43s;-ms-animation-delay:1.43s;-o-animation-delay:1.43s;animation-delay:1.43s;}\
+        @-moz-keyframes bounce_load_G{\
+        0%{-moz-transform:scale(1);background-color:#0800F5;}\
+        100%{-moz-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-webkit-keyframes bounce_load_G{\
+        0%{-webkit-transform:scale(1);background-color:#0800F5;}\
+        100%{-webkit-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-ms-keyframes bounce_load_G{\
+        0%{-ms-transform:scale(1);background-color:#0800F5;}\
+        100%{-ms-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-o-keyframes bounce_load_G{\
+        0%{-o-transform:scale(1);background-color:#0800F5;}\
+        100%{-o-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @keyframes bounce_load_G{\
+        0%{transform:scale(1);background-color:#0800F5;}\
+        100%{transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}";
+      window.loader_style = document.createElement('style');
+      window.loader_style.innerHTML = loadCSS;
+      document.body.appendChild(window.loader_style);
+      window.loader = document.createElement('div');
+      window.dim = document.createElement('div');
+      window.dim.setAttribute("id", "dim");
+      window.loader.innerHTML = loadTemplate;
+      document.body.appendChild(window.loader);
+      document.body.appendChild(window.dim);
+      console.log("LOADER DONE");
+    <!--[if lte IE 9]>
+    .browser-alert-wraper
+      .content
+        |Your browser is too old for this app
+      .dim
+    <![endif]-->
+
+    spinner(ng-cloak)
+    .topMenu(ng-cloak)
+    .content(ng-cloak)
+      .navbar.navbar-default(role='navigation', bs-navbar='bs-navbar')
+        .navbar-header
+          a.navbar-brand(href='#') Administrace
+          ul.nav.navbar-nav
+            li(ng-repeat='m in menu' data-match-route='{{m.route}}' ng-class="m.class")
+              a(ng-href="{{m.route}}" target="_self" ng-if="m.route") {{m.name|translate}}
+              a(ui-sref="{{m.state}}" ng-if="m.state") {{m.name|translate}}
+              a(href ng-if="m.special && !m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover) {{m.name|translate}}
+              a(href ng-if="m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover)
+                i(class="fa {{m.icon}}")
+            li(basket-icon)
+            li(settings-icon)
+      .anim(ui-view='main' class="dn-flip-x")
+
+    <!--[if lt IE 8]>
+    script(src="/vendor/json2/json2.js")
+    <![endif]-->
+    link(type='text/css' href='/build/css/main.css' rel='stylesheet')
+    //script(type='text/javascript' src='/vendor/angular-loader/angular-loader.js')
+    script(type='text/javascript' src='/vendor/scriptjs/dist/script.js')
+    //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js')
+    script(type='text/javascript').
+      $script([
+        '/vendor/scriptjs/dist/script.js'
+        ],
+        function(){
+          $script([
+            '/build/js/admin.js'
+            ],
+            function(){
+                angular.bootstrap(document, ['admin'])
+                window.loader.parentNode.removeChild(window.loader)
+                window.dim.parentNode.removeChild(window.dim)
+            });
+        });

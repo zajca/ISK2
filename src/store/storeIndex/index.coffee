@@ -1,6 +1,6 @@
 'use strict'
 
-require "./../common/titleService"
+require "./../../common/titleService"
 require "./bookDirective"
 
 m = angular.module("store.index.ctrl", ["titleService","store.book.directive"])

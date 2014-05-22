@@ -9,7 +9,7 @@ m.config(
       views:
         main:
           controller: "LoginCtrl"
-          templateUrl: "/build/partials/auth/login.tpl.html"
+          templateUrl: "/build/partials/common/auth/login.tpl.html"
     )
   ]
 )

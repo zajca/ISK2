@@ -12,7 +12,7 @@ gulp.task("devServer",["serverLint"], function() {
     env: {
       "ENV": "dev"
     },
-    ignore: ["./src/**/*", "./build/**/*"]
+    ignore: ["./src", "./build"]
   })
   .on("change", ["serverLint"])
   .on("change",[])

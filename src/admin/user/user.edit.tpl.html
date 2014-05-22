@@ -1,0 +1,107 @@
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Uživatel</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Jméno</label>
+  <div class="col-md-6">
+      <input id="name" name="name" type="text" placeholder="Jméno uživatele" class="form-control input-md" required="">
+      <span class="help-block">Zadejte jméno uživate</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="surname">Příjmení</label>
+  <div class="col-md-6">
+      <input id="surname" name="surname" type="text" placeholder="Příjmení uživatele" class="form-control input-md" required="">
+      <span class="help-block">Zadejte příjmení uživatele</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>
+      <div class="col-md-6">
+      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+  </div>
+</div>
+
+<!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="picture">Profilová fotografie</label>
+  <div class="col-md-4">
+    <input id="picture" name="picture" class="input-file" type="file">
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="locale">Preferovaný jazyk</label>
+  <div class="col-md-6">
+    <select id="locale" name="locale" class="form-control">
+      <option value="1">CZ</option>
+      <option value="2">EN</option>
+    </select>
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Heslo</label>
+  <div class="col-md-6">
+    <input id="password" name="password" type="password" placeholder="Změnit heslo" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tel">Telefon</label>
+  <div class="col-md-6">
+  <input id="tel" name="tel" type="text" placeholder="Telefoní číslo" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="roles">Uživatelské role</label>
+  <div class="col-md-6">
+    <select id="roles" name="roles" class="form-control" multiple="multiple">
+      <option value="1">Anonym</option>
+      <option value="2">Registered</option>
+      <option value="3">Admin</option>
+    </select>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="special.access">Přidělená práva</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="special.access" name="special.access"></textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="special.deny">Odebraná práva</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="special.deny" name="special.deny"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="save"></label>
+  <div class="col-md-4">
+    <button id="save" name="save" class="btn btn-warning">Uložit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

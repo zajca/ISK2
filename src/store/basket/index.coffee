@@ -1,6 +1,6 @@
 'use strict'
 
-require("./../../vendor/angular-local-storage/angular-local-storage")
+require("./../../../vendor/angular-local-storage/angular-local-storage")
 
 m = angular.module("basket",["LocalStorageModule"])
 

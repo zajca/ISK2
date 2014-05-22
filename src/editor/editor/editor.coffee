@@ -1,10 +1,10 @@
 'use strict'
 
-require "./../common/titleService"
-require "./../../vendor/angular-ui-ace/ui-ace"
-require "./../../vendor/ng-pdfviewer/ng-pdfviewer"
-# require "./../../vendor/angular-ui-layout/ui-layout"
-require "./../../vendor/angular-tree-control/angular-tree-control"
+require "./../../common/titleService"
+require "./../../../vendor/angular-ui-ace/ui-ace"
+require "./../../../vendor/ng-pdfviewer/ng-pdfviewer"
+# require "./../../../vendor/angular-ui-layout/ui-layout"
+require "./../../../vendor/angular-tree-control/angular-tree-control"
 
 m = angular.module("editor.editor.ctrl", ["titleService","ui.ace","ngPDFViewer","treeControl"])
 m.controller "EditorEditorCtrl",

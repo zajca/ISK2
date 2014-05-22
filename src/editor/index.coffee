@@ -16,11 +16,11 @@ require "./../common/titleService"
 require "./../common/bind-html-unsafe"
 #CTRL
 require "./editorCTRL"
-require "./../editor/routes"
-require "./../editor/editor"
-require "./../editor/directive"
+require "./editor/routes"
+require "./editor/editor"
+require "./editor/directive"
 
-require "../user"
+#require "../user"
 #i18n
 require "./../i18n/index"
 

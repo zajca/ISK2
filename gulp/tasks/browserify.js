@@ -6,37 +6,59 @@ var source       = require('vinyl-source-stream');
 var coffeelint   = require('gulp-coffeelint')
 var plumber   = require('gulp-plumber')
 
-var _enviroments = ["editor","store"]
+var _enviroments = ["editor","store","admin"]
 
-gulp.task('browserify_dev', function(){
+gulp.task('browserify_lint', function(){
   gulp.src('./src/**/*.coffee}').pipe(coffeelint())
+});
 
-  _enviroments.forEach(function (element, index, array) {
-    console.log(element);
-    return browserify({
-        entries: ['./src/app/'+element+'.coffee'],
-        extensions: ['.coffee'],
-        transform: ["coffeeify","brfs","envify","browserify-shim","debowerify"]
+gulp.task('browserify_dev_admin', ["browserify_lint"], function(){
+    browserify({
+        entries: ['./src/admin/index.coffee'],
+        extensions: ['.coffee']
     })
     .bundle({debug: true})
     .on('error', handleErrors)
-    .pipe(source(''+element+'.js'))
+    .pipe(source('admin.js'))
     .pipe(gulp.dest('./build/js/'))
     .pipe(livereload());
-  });
 });
 
-gulp.task('browserify', function(){
-  _enviroments.forEach(function (element, index, array) {
-    return browserify({
-      entries: ['./src/ng-app/app.coffee'],
-      extensions: ['.coffee']
+gulp.task('browserify_dev_store', ["browserify_lint"], function(){
+    browserify({
+        entries: ['./src/store/index.coffee'],
+        extensions: ['.coffee']
     })
     .bundle({debug: true})
     .on('error', handleErrors)
-    .pipe(source('app.js'))
-    .pipe(rev())
-    .pipe(streamify(uglify()))
+    .pipe(source('store.js'))
     .pipe(gulp.dest('./build/js/'))
-  });
+    .pipe(livereload());
 });
+
+gulp.task('browserify_dev_editor', ["browserify_lint"], function(){
+    browserify({
+        entries: ['./src/editor/index.coffee'],
+        extensions: ['.coffee']
+    })
+    .bundle({debug: true})
+    .on('error', handleErrors)
+    .pipe(source('editor.js'))
+    .pipe(gulp.dest('./build/js/'))
+    .pipe(livereload());
+});
+
+// gulp.task('browserify', function(){
+//   _enviroments.forEach(function (element, index, array) {
+//     return browserify({
+//       entries: ['./src/ng-app/app.coffee'],
+//       extensions: ['.coffee']
+//     })
+//     .bundle({debug: true})
+//     .on('error', handleErrors)
+//     .pipe(source('app.js'))
+//     .pipe(rev())
+//     .pipe(streamify(uglify()))
+//     .pipe(gulp.dest('./build/js/'))
+//   });
+// });

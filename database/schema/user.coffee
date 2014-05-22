@@ -66,7 +66,17 @@ User = new Schema
       type: Schema.Types.ObjectId
       ref: "Book"
     ]
+  payed_e_books:
+    [
+      type: Schema.Types.ObjectId
+      ref: "Book"
+    ]
   payed_books:
+    [
+      type: Schema.Types.ObjectId
+      ref: "Book"
+    ]
+  favourite_books:
     [
       type: Schema.Types.ObjectId
       ref: "Book"
@@ -75,22 +85,14 @@ User = new Schema
     type: [String]
     default: ['anonymous']
   special:
-    canRead:
-      projects:[
-        type: Schema.Types.ObjectId
-        ref: "Project"
-      ]
-    canEdit:
-      projects:[
-        type: Schema.Types.ObjectId
-        ref: "Project"
-      ]
-  UserAgent:String
-  remoteAddress:String
-  XForwardedFor:String
+    allow: [String]
+    deny: [String]
   last_login:
     type:Date
     default: Date.now
+    UserAgent:String
+    remoteAddress:String
+    XForwardedFor:String
   meta: [
     key: String
     value: String

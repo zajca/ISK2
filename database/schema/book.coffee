@@ -30,14 +30,13 @@ Book = new Schema
       data: Buffer
       contentType: String
   genres:[
-    {
-      type: String
-      index: true
-    }
+    type: String
+    index: true
   ]
-  keywords:
+  keywords:[
     type:String
     required:false
+  ]
   number_of_sales:
     type:Number
     required:false
@@ -108,7 +107,7 @@ Book.pre 'validate', (next)->
 #HLEDANI PODLE URL
 Book.statics.findOneByUrl = (url, cb)->
   this.findOne({url: url}, cb)
-    
+
 # Book.create = ->
 
 # Book.canDownloadBook = ->

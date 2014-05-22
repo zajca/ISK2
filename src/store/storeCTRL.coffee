@@ -41,14 +41,14 @@ m.controller "StoreCtrl", [
       route: undefined
       special: "register"
       class: "pull-right"
-      template: "/build/partials/user/register.tpl.html"
-    ,
-      name:"MENU_LOGIN"
-      route: undefined
-      # special: "login"
-      icon: "fa-sign-in"
-      class: "pull-right"
-      template: "/build/partials/user/login.tpl.html"
+      template: "/build/partials/store/user/register.tpl.html"
+    # ,
+    #   name:"MENU_LOGIN"
+    #   route: undefined
+    #   # special: "login"  
+    #   icon: "fa-sign-in"
+    #   class: "pull-right"
+    #   template: "/build/partials/store/user/login.tpl.html"
     ]
 
     $scope.books=[
