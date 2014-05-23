@@ -48,6 +48,18 @@ gulp.task('browserify_dev_editor', ["browserify_lint"], function(){
     .pipe(livereload());
 });
 
+gulp.task('browserify_dev_create', ["browserify_lint"], function(){
+    browserify({
+        entries: ['./src/create/index.coffee'],
+        extensions: ['.coffee']
+    })
+    .bundle({debug: true})
+    .on('error', handleErrors)
+    .pipe(source('create.js'))
+    .pipe(gulp.dest('./build/js/'))
+    .pipe(livereload());
+});
+
 // gulp.task('browserify', function(){
 //   _enviroments.forEach(function (element, index, array) {
 //     return browserify({

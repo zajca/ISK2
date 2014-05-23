@@ -75,11 +75,14 @@ module.constant "CONF", require("./store_dev.json")
 module.run (editableOptions) ->
   editableOptions.theme = 'bs3'
 
-module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF",
-  ($urlRouterProvider,$locationProvider,$logProvider,conf)->
+module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF","$dropdownProvider",
+  ($urlRouterProvider,$locationProvider,$logProvider,conf,$dropdownProvider)->
     $urlRouterProvider.otherwise "/"
     $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
     $logProvider.debugEnabled conf.debug
+    angular.extend $dropdownProvider.defaults,
+      animation: "am-flip-x"
+      placement: "bottom-left"
 ]
 
 module.config require("./../common/httpInterceptor")

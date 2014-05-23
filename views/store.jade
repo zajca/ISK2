@@ -8,6 +8,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
       document.write('<base href="' + document.location + '" />');
     meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
     meta(charset='UTF-8')
+    base(href="/")
 
     <!--[if lt IE 9]>
     script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
@@ -90,9 +91,6 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
         |Your browser is too old for this app
       .dim
     <![endif]-->
-
-    spinner(ng-cloak)
-    .topMenu(ng-cloak)
     .content(ng-cloak)
       .navbar.navbar-default(role='navigation', bs-navbar='bs-navbar')
         .navbar-header
@@ -104,6 +102,8 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
               a(href ng-if="m.special && !m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover) {{m.name|translate}}
               a(href ng-if="m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover)
                 i(class="fa {{m.icon}}")
+        #navbar-collapse2.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
             li(basket-icon)
             li(settings-icon)
       .anim(ui-view='main' class="dn-flip-x")

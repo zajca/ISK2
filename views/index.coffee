@@ -10,7 +10,7 @@ editor  = (request, reply) ->
   reply.view "editor"
 
 create  = (request, reply) ->
-  reply.view "editor"
+  reply.view "create"
 
 admin   = (request, reply) ->
   reply.view "admin"

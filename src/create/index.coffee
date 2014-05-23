@@ -1,3 +1,4 @@
+
 'use strict'
 
 #VENDOR
@@ -35,14 +36,14 @@ require "./../common/matchDirective"
 # require "./../common/slider"
 require "./../common/auth"
 #CTRL
-require "./book"
-require "./stats"
-require "./user"
+# require "./book"
+# require "./stats"
+# require "./user"
 
 # #i18n
 require "./../i18n"
 
-module = angular.module("admin", [
+module = angular.module("create", [
   "ui.router"
   "ngAnimate"
   "ngSanitize"
@@ -62,26 +63,26 @@ module = angular.module("admin", [
   "xeditable"
   "ngAnimate-animate.css"
   "auth"
-  "user"
-  "book"
-  "stats"
+  # "user"
+  # "book"
+  # "stats"
 ])
 
 
-module.constant "CONF", require("./admin_dev.json")
+module.constant "CONF", require("./create_dev.json")
 
 module.run (editableOptions) ->
   editableOptions.theme = 'bs3'
 
 module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF",
   ($urlRouterProvider,$locationProvider,$logProvider,conf)->
-    $urlRouterProvider.otherwise "/"
+    $urlRouterProvider.otherwise "/create"
     $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
     $logProvider.debugEnabled conf.debug
 ]
-module.controller "AdminCtrl", require("./admin.ctrl")
+module.controller "CreateCtrl", require("./create.ctrl")
 module.config require("./../common/httpInterceptor")
 
 module.run ["titleService",(titleService) ->
-  titleService.setSuffix " | Admin"
+  titleService.setSuffix " | Create"
 ]

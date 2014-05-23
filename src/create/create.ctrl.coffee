@@ -27,6 +27,13 @@ module.exports = [
     ,
       name:"MENU_STORAGE"
       route: "/storage"
+    ,
+      name:"MENU_LOGOUT"
+      route: undefined
+      # special: "login"
+      icon: "fa-sign-in"
+      class: "pull-right"
+      route: "/logout"
     ]
 
     $rootScope.$on('$stateChangeSuccess',

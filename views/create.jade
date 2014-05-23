@@ -1,18 +1,482 @@
 doctype html
-html#ng-app(xmlns:ng='http://angularjs.org', ng-app='app', data-ng-csp='data-ng-csp', lang='cs', dir='ltr', ng-controller='AppCtrl', ng-init='init()')
+html#ng-app(xmlns:ng='http://angularjs.org', data-ng-csp='data-ng-csp', lang='cs', dir='ltr', ng-controller='CreateCtrl', ng-init='init()')
   head
-      title
-      style(type='text/css')
-        [ng-cloak] {display: none;}
-      script(type='text/javascript').
-        document.write('<base href="' + document.location + '" />')
-      meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
-      meta(charset='UTF-8')
-      //INJECT:css (js)
-      //END INJECT
+    title
+    style(type='text/css').
+      [ng-cloak] {display: none;}
+    script(type='text/javascript').
+      document.write('<base href="' + document.location + '" />')
+    meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
+    meta(charset='UTF-8')
+    base(href="/create/")
+    //INJECT:css (js)
+    //END INJECT
 
-      //INJECT:js (js)
-      //END INJECT
+    //INJECT:js (js)
+    //END INJECT
 
-  body.
-    create
+  body
+    script(type='text/javascript').
+      var loadTemplate = "<div id='load_G'>\
+          <div id='load_G1' class='load_G'></div>\
+          <div id='load_G2' class='load_G'></div>\
+          <div id='load_G3' class='load_G'></div>\
+          <div id='load_G4' class='load_G'></div>\
+          <div id='load_G5' class='load_G'></div>\
+          <div id='load_G6' class='load_G'></div>\
+          <div id='load_G7' class='load_G'></div>\
+          <div id='load_G8' class='load_G'></div>\
+        <div>";
+      var loadCSS = "#dim{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.7;z-index:1000;background:#000;}\
+        #load_G{position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;width:240px;height:29px}\
+        .load_G{position:absolute;top:0;background-color:#0800F5;width:29px;height:29px;\
+          -moz-animation-name:bounce_load_G;-moz-animation-duration:1.3s;-moz-animation-iteration-count:infinite;-moz-animation-direction:linear;-moz-transform:scale(.3);\
+          -webkit-animation-name:bounce_load_G;-webkit-animation-duration:1.3s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear;-webkit-transform:scale(.3);\
+          -ms-animation-name:bounce_load_G;-ms-animation-duration:1.3s;-ms-animation-iteration-count:infinite;-ms-animation-direction:linear;-ms-transform:scale(.3);\
+          -o-animation-name:bounce_load_G;-o-animation-duration:1.3s;-o-animation-iteration-count:infinite;-o-animation-direction:linear;-o-transform:scale(.3);\
+          animation-name:bounce_load_G;animation-duration:1.3s;animation-iteration-count:infinite;animation-direction:linear;\
+          transform:scale(.3);}\
+        #load_G1{left:0;\
+          -moz-animation-delay:0.52s;-webkit-animation-delay:0.52s;-ms-animation-delay:0.52s;-o-animation-delay:0.52s;animation-delay:0.52s;}\
+        #load_G2{left:30px;\
+        -moz-animation-delay:0.65s;-webkit-animation-delay:0.65s;-ms-animation-delay:0.65s;-o-animation-delay:0.65s;animation-delay:0.65s;}\
+        #load_G3{left:60px;\
+          -moz-animation-delay:0.78s;-webkit-animation-delay:0.78s;-ms-animation-delay:0.78s;-o-animation-delay:0.78s;animation-delay:0.78s;}\
+        #load_G4{left:90px;\
+          -moz-animation-delay:0.91s;-webkit-animation-delay:0.91s;-ms-animation-delay:0.91s;-o-animation-delay:0.91s;animation-delay:0.91s;}\
+        #load_G5{left:120px;\
+          -moz-animation-delay:1.04s;-webkit-animation-delay:1.04s;-ms-animation-delay:1.04s;-o-animation-delay:1.04s;animation-delay:1.04s;}\
+        #load_G6{left:150px;\
+          -moz-animation-delay:1.17s;-webkit-animation-delay:1.17s;-ms-animation-delay:1.17s;-o-animation-delay:1.17s;animation-delay:1.17s;}\
+        #load_G7{left:180px;\
+          -moz-animation-delay:1.3s;-webkit-animation-delay:1.3s;-ms-animation-delay:1.3s;-o-animation-delay:1.3s;animation-delay:1.3s;}\
+        #load_G8{left:210px;\
+          -moz-animation-delay:1.43s;-webkit-animation-delay:1.43s;-ms-animation-delay:1.43s;-o-animation-delay:1.43s;animation-delay:1.43s;}\
+        @-moz-keyframes bounce_load_G{\
+        0%{-moz-transform:scale(1);background-color:#0800F5;}\
+        100%{-moz-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-webkit-keyframes bounce_load_G{\
+        0%{-webkit-transform:scale(1);background-color:#0800F5;}\
+        100%{-webkit-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-ms-keyframes bounce_load_G{\
+        0%{-ms-transform:scale(1);background-color:#0800F5;}\
+        100%{-ms-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @-o-keyframes bounce_load_G{\
+        0%{-o-transform:scale(1);background-color:#0800F5;}\
+        100%{-o-transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}\
+        @keyframes bounce_load_G{\
+        0%{transform:scale(1);background-color:#0800F5;}\
+        100%{transform:scale(.3) rotate(90deg);background-color:#1A74B8;}}";
+      window.loader_style = document.createElement('style');
+      window.loader_style.innerHTML = loadCSS;
+      document.body.appendChild(window.loader_style);
+      window.loader = document.createElement('div');
+      window.dim = document.createElement('div');
+      window.dim.setAttribute("id", "dim");
+      window.loader.innerHTML = loadTemplate;
+      document.body.appendChild(window.loader);
+      document.body.appendChild(window.dim);
+      console.log("LOADER DONE");
+    <!--[if lte IE 9]>
+    .browser-alert-wraper
+      .content
+        |Your browser is too old for this app
+      .dim
+    <![endif]-->
+    //- spinner(ng-cloak)
+    #subnav.navbar.navbar-default
+      .col-md-12
+        .navbar-header
+          a.navbar-btn.btn.btn-default.btn-plus.dropdown-toggle(href='#', style='margin-left: 15px;', data-toggle='dropdown')
+            i.glyphicon.glyphicon-home(style='color: #dd1111;')
+            | Home
+            small
+              i.glyphicon.glyphicon-chevron-down
+          ul.nav.dropdown-menu
+            li
+              a(href='#')
+                i.glyphicon.glyphicon-user(style='color: #1111dd;')
+                | Profile
+            li
+              a(href='#')
+                i.glyphicon.glyphicon-dashboard(style='color: #0000aa;')
+                | Dashboard
+            li
+              a(href='#')
+                i.glyphicon.glyphicon-inbox(style='color: #11dd11;')
+                | Pages
+            li.nav-divider
+            li
+              a(href='#')
+                i.glyphicon.glyphicon-cog(style='color: #dd1111;')
+                | Settings
+            li
+              a(href='#')
+                i.glyphicon.glyphicon-plus
+                | More..
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-collapse2')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar-collapse2.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='#') Posts
+            li
+              a(href='#loginModal', role='button', data-toggle='modal') Login
+            li
+              a(href='#aboutModal', role='button', data-toggle='modal') About
+    #main.container
+      .row
+        .col-md-4.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Bootstrap Examples
+            .panel-body
+              .list-group
+                a.list-group-item(href='http://bootply.com/tagged/modal') Modal / Dialog
+                a.list-group-item(href='http://bootply.com/tagged/datetime') Datetime Examples
+                a.list-group-item(href='http://bootply.com/tagged/datatable') Data Grids
+          .well
+            form.form-horizontal(role='form')
+              h4 What's New
+              .form-group(style='padding: 14px;')
+                textarea.form-control(placeholder='Update your status')
+              button.btn.btn-success.pull-right(type='button') Post
+              ul.list-inline
+                li
+                  a(href='#')
+                    i.glyphicon.glyphicon-align-left
+                li
+                  a(href='#')
+                    i.glyphicon.glyphicon-align-center
+                li
+                  a(href='#')
+                    i.glyphicon.glyphicon-align-right
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 More Templates
+            .panel-body
+              img.img-circle.pull-right(src='//placehold.it/150x150')
+              a(href='#') Free @Bootply
+              .clearfix
+              | There a load of new free Bootstrap 3 ready templates at Bootply. All of these templates are free and don't require extensive customization to the Bootstrap baseline.
+              hr
+              ul.list-unstyled
+                li
+                  a(href='http://www.bootply.com/templates') Dashboard
+                li
+                  a(href='http://www.bootply.com/templates') Darkside
+                li
+                  a(href='http://www.bootply.com/templates') Greenfield
+        .col-md-4.col-sm-6
+          .well
+            form.form
+              h4 Sign-up
+              .input-group.text-center
+                input.form-control.input-lg(type='text', placeholder='Enter your email address')
+                span.input-group-btn
+                  button.btn.btn-lg.btn-primary(type='button') OK
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Bootply Editor & Code Library
+            .panel-body
+              p
+                img.img-circle.pull-right(src='//placehold.it/150x150')
+                a(href='#') The Bootstrap Playground
+              .clearfix
+              hr
+              | Design, build, test, and prototype using Bootstrap in real-time from your Web browser. Bootply combines the power of hand-coded HTML, CSS and JavaScript with the benefits of responsive design using Bootstrap. Find and showcase Bootstrap-ready snippets in the 100% free Bootply.com code repository.
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Portlet Heading
+            .panel-body
+              ul.list-group
+                li.list-group-item Modals
+                li.list-group-item Sliders / Carousel
+                li.list-group-item Thumbnails
+        .col-md-4.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Portlet Heading
+            .panel-body
+              ul.list-group
+                li.list-group-item Bootply Playground
+                li.list-group-item Bootstrap Editor
+                li.list-group-item Bootstrap Templates
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Stackoverflow
+            .panel-body
+              img.img-circle.pull-right(src='//placehold.it/150x150')
+              a(href='#') Keyword: Bootstrap
+              .clearfix
+              hr
+              p
+                | If you're looking for help with Bootstrap code, the
+                code twitter-bootstrap
+                | tag at
+                a(href='http://stackoverflow.com/questions/tagged/twitter-bootstrap') Stackoverflow
+                | is a good place to find answers.
+              hr
+              form
+                .input-group
+                  .input-group-btn
+                    button.btn.btn-default +1
+                    button.btn.btn-default
+                      i.glyphicon.glyphicon-share
+                  input.form-control(type='text', placeholder='Add a comment..')
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Top Items
+            .panel-body
+              .list-group
+                a.list-group-item.active(href='http://bootply.com/tagged/bootstrap-3') Bootstrap 3
+                a.list-group-item(href='http://bootply.com/tagged/snippets') Snippets
+                a.list-group-item(href='http://bootply.com/tagged/example') Examples
+      //
+        /row
+      hr
+      .row
+        .col-md-12
+          h2 Posts
+        .col-md-4.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Upgrade to Bootstrap 3
+            .panel-body
+              img.img-circle.pull-right(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70')
+              a(href='#') Guidance and Tools
+              .clearfix
+              hr
+              p
+                | Migrating from Bootstrap 2.x to 3 is not a simple matter of swapping out the JS and CSS files.
+                | Bootstrap 3 is a major overhaul, and there are a lot of changes from Bootstrap 2.x.
+                a(href='http://bootply.com/bootstrap-3-migration-guide') This guidance
+                | is intended to help 2.x developers transition to 3.
+              h5
+                a(href='http://google.com/+bootply') More on Upgrading from +Bootply
+        .col-md-4.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Profiles
+            .panel-body
+              | Check out some of our member profiles..
+              hr
+              .well.well-sm
+                .media
+                  a.thumbnail.pull-left(href='#')
+                    img.media-object(src='//placehold.it/80')
+                  .media-body
+                    h4.media-heading John Doe
+                    p
+                      span.label.label-info 10 photos
+                      span.label.label-primary 89 followers
+                    p
+                      a.btn.btn-xs.btn-default(href='#')
+                        span.glyphicon.glyphicon-comment
+                        | Message
+                      a.btn.btn-xs.btn-default(href='#')
+                        span.glyphicon.glyphicon-heart
+                        | Favorite
+        .col-md-4.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Inspiration
+            .panel-body
+              img.img-circle.pull-right(src='//placehold.it/150')
+              a(href='#') Articles
+              .clearfix
+              hr
+              .clearfix
+              img.img-responsive.img-thumbnail.pull-right(src='http://placehold.it/120x90/3333CC/FFF')
+              p
+                | The more powerful (and 100% fluid) Bootstrap 3 grid now comes in 4 sizes (or "breakpoints"). Tiny (for smartphones), Small (for tablets), Medium (for laptops) and Large (for laptops/desktops).
+              .clearfix
+              hr
+              .clearfix
+              img.img-responsive.img-thumbnail.pull-left(src='http://placehold.it/120x90/33CC33/FFF', style='margin-right: 5px;')
+              p
+                | Mobile first" is a responsive Web design practice that prioritizes consideration of smart phones and mobile devices when creating Web pages.
+        //
+          /articles
+      hr
+      .row
+        .col-sm-4.col-xs-6
+          .panel.panel-default
+            .panel-thumbnail
+              img.img-responsive(src='/assets/example/bg_suburb.jpg')
+            .panel-body
+              p.lead Hacker News
+              p 120k Followers, 900 Posts
+              p
+                img(src='https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg', width='28px', height='28px')
+                img(src='https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg', width='28px', height='28px')
+        //
+          /col
+        .col-sm-4.col-xs-6
+          .panel.panel-default
+            .panel-thumbnail
+              img.img-responsive(src='//placehold.it/450X300/DD66DD/FFF')
+            .panel-body
+              p.lead Bootstrap Templates
+              p 902 Followers, 88 Posts
+              p
+                img(src='https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28', width='28px', height='28px')
+                img(src='https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg', width='28px', height='28px')
+        //
+          /col
+        .col-sm-4.col-xs-6
+          .panel.panel-default
+            .panel-thumbnail
+              img.img-responsive(src='//placehold.it/450X300/2222DD/FFF')
+            .panel-body
+              p.lead Social Media
+              p 19k Followers, 789 Posts
+              p
+                img(src='https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg', width='28px', height='28px')
+                img(src='https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg', width='28px', height='28px')
+        //
+          /col
+      hr
+      .row
+        .col-md-12
+          h2 Playground
+        .col-md-12
+          .alert.alert-info.alert-dismissable
+            button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+            strong Heads up!
+            | This alert needs your attention, but it's not super important.
+        .col-md-6.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Buttons & Labels
+            .panel-body
+              .row
+                .col-xs-4
+                  a.btn.btn-default.center-block(href='#') Button
+                .col-xs-4
+                  a.btn.btn-primary.center-block(href='#') Primary
+                .col-xs-4
+                  a.btn.btn-danger.center-block(href='#') Danger
+              br
+              .row
+                .col-xs-4
+                  a.btn.btn-warning.center-block(href='#') Warning
+                .col-xs-4
+                  a.btn.btn-info.center-block(href='#') Info
+                .col-xs-4
+                  a.btn.btn-success.center-block(href='#') Success
+              hr
+              .btn-group.btn-group-sm
+                button.btn.btn-default 1
+                button.btn.btn-default 2
+                button.btn.btn-default 3
+              hr
+              .row
+                .col-md-4
+                  span.label.label-default Label
+                  span.label.label-success Success
+                .col-md-4
+                  span.label.label-warning Warning
+                  span.label.label-info Info
+                .col-md-4
+                  span.label.label-danger Danger
+                  span.label.label-primary Primary
+        .col-md-6.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Progress Bars
+            .panel-body
+              .progress
+                .progress-bar.progress-bar-info(style='width: 20%;')
+              .progress
+                .progress-bar.progress-bar-success(style='width: 40%;')
+              .progress
+                .progress-bar.progress-bar-warning(style='width: 80%;')
+              .progress
+                .progress-bar.progress-bar-danger(style='width: 50%;')
+        .col-md-6.col-sm-6
+          .panel.panel-default
+            .panel-heading
+              a.pull-right(href='#') View all
+              h4 Tabs
+            .panel-body
+              ul.nav.nav-tabs
+                li.active
+                  a(href='#A', data-toggle='tab') Section 1
+                li
+                  a(href='#B', data-toggle='tab') Section 2
+                li
+                  a(href='#C', data-toggle='tab') Section 3
+              .tabbable
+                .tab-content
+                  #A.tab-pane.active
+                    .well.well-sm I'm in Section A.
+                  #B.tab-pane
+                    .well.well-sm Howdy, I'm in Section B.
+                  #C.tab-pane
+                    .well.well-sm I've decided that I like wells.
+              //
+                 /tabbable 
+              .col-sm-12.text-center
+                ul.pagination.center-block(style='display: inline-block;')
+                  li
+                    a(href='#') «
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#') »
+        //
+          playground
+        br
+        .clearfix
+        hr
+        .col-md-12.text-center
+          p
+            a(href='http://www.bootply.com/download/90113', target='_ext') Download Google Plus Style Template
+            br
+            a(href='http://bootply.com/templates', target='_ext') More Bootstrap Templates by @Bootply
+        hr
+    <!--[if lt IE 8]>
+    script(src="/vendor/json2/json2.js")
+    <![endif]-->
+    link(type='text/css' href='/build/css/main.css' rel='stylesheet')
+    //script(type='text/javascript' src='/vendor/angular-loader/angular-loader.js')
+    script(type='text/javascript' src='/vendor/scriptjs/dist/script.js')
+    //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js')
+    script(type='text/javascript').
+      $script([
+        '/vendor/scriptjs/dist/script.js'
+        ],
+        function(){
+          $script([
+            '/build/js/create.js'
+            ],
+            function(){
+                angular.bootstrap(document, ['create'])
+                window.loader.parentNode.removeChild(window.loader)
+                window.dim.parentNode.removeChild(window.dim)
+            });
+        });

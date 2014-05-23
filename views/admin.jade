@@ -4,10 +4,9 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     title
     style(type='text/css').
       [ng-cloak] {display: none;}
-    script(type='text/javascript').
-      document.write('<base href="' + document.location + '" />');
     meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
     meta(charset='UTF-8')
+    base(href="/admin/")
 
     <!--[if lt IE 9]>
     script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
@@ -104,8 +103,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
               a(href ng-if="m.special && !m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover) {{m.name|translate}}
               a(href ng-if="m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover)
                 i(class="fa {{m.icon}}")
-            li(basket-icon)
-            li(settings-icon)
+            //- li(settings-icon)
       .anim(ui-view='main' class="dn-flip-x")
 
     <!--[if lt IE 8]>

@@ -18,7 +18,7 @@ m.config(
       views:
         main:
           controller: "EditorEditorCtrl"
-          templateUrl: "/build/partials/editor/editor.html"
+          templateUrl: "/build/partials/editor/editor/editor.html"
     )
   ]
 )
