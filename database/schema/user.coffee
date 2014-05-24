@@ -83,7 +83,7 @@ User = new Schema
     ]
   roles:
     type: [String]
-    default: ['anonymous']
+    default: ['anonym']
   special:
     allow: [String]
     deny: [String]

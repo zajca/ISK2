@@ -7,6 +7,11 @@ module.exports = ["$window", "$location", "$rootScope", "localStorageService","S
     ###*
      * sanitize user input
     ###
+    get = ->
+      email: SessionService.get("email") || ls.get("email") || "anonym"
+      token: SessionService.get("token") || ls.get("token") || null
+      groups: SessionService.get("goups") || ls.get("goups") || null
+      id:SessionService.get("id") || ls.get("id") || 0
     sanitizeCredentials = (credentials) ->
       email: $sanitize(credentials.email)
       password: $sanitize(credentials.password)
@@ -14,6 +19,7 @@ module.exports = ["$window", "$location", "$rootScope", "localStorageService","S
       SessionService.unset("token")
       SessionService.unset("email")
       SessionService.unset("id")
+      SessionService.unset("groups")
       ls.clearAll()
     cacheSession = (data)->
       console.log "cache",data
@@ -23,6 +29,7 @@ module.exports = ["$window", "$location", "$rootScope", "localStorageService","S
       user = angular.fromJson($window.atob(data.token.split(".")[1]))
       console.log user
       SessionService.set("email",user.email)
+      SessionService.set("groups",user.groups)
       SessionService.set("id",user.id)
 
       ls.set("email",user.email)

@@ -90,7 +90,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
       .dim
     <![endif]-->
 
-    spinner(ng-cloak)
+    //- spinner(ng-cloak)
     //- ul#alerts(ng-controller="FlashCtrl") {{alerts}}
     #alerts(ng-controller="FlashCtrl")
       alert(ng-repeat="(key, alert) in alerts" type="{{alert.type}}" close="close($index)")
@@ -106,7 +106,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
               a(href ng-if="m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover)
                 i(class="fa {{m.icon}}")
             //- li(settings-icon)
-      .anim(ui-view='main' class="dn-flip-x")
+      .anim(ui-view='main' class="dn-fade-down")
 
     <!--[if lt IE 8]>
     script(src="/vendor/json2/json2.js")
@@ -114,10 +114,11 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     link(type='text/css' href='/build/css/main.css' rel='stylesheet')
     //script(type='text/javascript' src='/vendor/angular-loader/angular-loader.js')
     script(type='text/javascript' src='/vendor/scriptjs/dist/script.js')
-    //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js')
     script(type='text/javascript').
       $script([
-        '/vendor/flow.js/dist/flow.min.js'
+        '/vendor/flow.js/dist/flow.min.js',
+        '/socket.io/socket.io.js',
+        '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js'
         ],
         function(){
           $script(['/build/js/admin.js'], function(){

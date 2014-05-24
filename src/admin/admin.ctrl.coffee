@@ -4,12 +4,14 @@ module.exports = [
   "$rootScope"
   "$translate"
   "admin.api"
+  "socketIO"
   (
     $scope
     $state
     $rootScope
     $translate
     API
+    io
   ) ->
 
     $scope.init =->
@@ -33,6 +35,7 @@ module.exports = [
 
     $rootScope.$on('$stateChangeSuccess',
     (event, toState)->
+      io.emit("message",window.location)
       angular.forEach($scope.menu, (value)->
         if "#{value.state}" == "#{toState.name}"
           value.active = true

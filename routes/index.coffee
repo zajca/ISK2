@@ -52,6 +52,7 @@ module.exports =
     require("./book")(server)
     require("./me")(server)
     require("./user")(server)
+    # require("./socket")(server)
     server.route
       method: "POST"
       path: "#{prefix}/login"

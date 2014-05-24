@@ -18,3 +18,4 @@ module.exports =
   user: require "./schema/user"
   book: require "./schema/book"
   file: require "./plugins/gridfs"
+  session: require "./schema/session"

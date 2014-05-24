@@ -39,6 +39,7 @@ require "./../common/matchDirective"
 # require "./../common/slider"
 require "./../common/auth"
 require "./../common/alert"
+require "./../common/filters"
 #CTRL
 require "./book"
 require "./stats"
@@ -75,6 +76,7 @@ module = angular.module("admin", [
   "flow"
   "ngTable"
   'btford.socket-io'
+  "filters"
 ])
 
 
@@ -102,13 +104,10 @@ module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF","f
 
     flowFactoryProvider.on "fileAdded", (event) ->
       console.log "fileAdded", event
-      return
     flowFactoryProvider.on "filesSubmitted", (event) ->
       console.log "filesSubmitted", event
-      return
     flowFactoryProvider.on "catchAll", (event) ->
       console.log "catchAll", event
-      return
 
 ]
 module.controller "AdminCtrl", require("./admin.ctrl")
@@ -117,6 +116,7 @@ module.config require("./../common/httpInterceptor")
 module.run ["titleService",(titleService) ->
   titleService.setSuffix " | Admin"
 ]
+
 module.factory "admin.api", ["$http","CONF","$log",($http,CONF,$log)->
   login:()->
     console.log "login test"
@@ -126,4 +126,8 @@ module.factory "admin.api", ["$http","CONF","$log",($http,CONF,$log)->
     ,(res)->
       $log.debug "invalid login",res
     http
+]
+
+module.factory 'socketIO', ["socketFactory",(socketFactory)->
+  socketFactory()
 ]

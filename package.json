@@ -16,6 +16,7 @@
     "cabrel-hapi-json": "^0.1.2",
     "coffee-script": "^1.7.1",
     "debowerify": "^0.7.1",
+    "genid": "^0.1.0",
     "gm": "^1.16.0",
     "gridfs-stream": "^0.5.1",
     "hapi": "^4.1.2",

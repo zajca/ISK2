@@ -6,7 +6,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
       [ng-cloak] {display: none;}
     script(type='text/javascript').
       document.write('<base href="' + document.location + '" />');
-    script(src="/socket.io/socket.io.js")
+    //- script(src="/socket.io/socket.io.js")
     meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
     meta(charset='UTF-8')
     base(href="/")
@@ -116,7 +116,8 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js')
     script(type='text/javascript').
       $script([
-        '/vendor/hammerjs/hammer.min.js'
+        '/vendor/hammerjs/hammer.min.js',
+        '/socket.io/socket.io.js'
         ],
         function(){
           $script([

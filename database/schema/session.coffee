@@ -1,24 +1,21 @@
-mongoose = require("mongoose")
+mongoose = require 'mongoose'
+Schema = mongoose.Schema
 genid = require("genid")
 
-
-{Schema, Document, Query} = mongoose
-{ObjectId, Mixed} = Schema.Types
-
-TokenSchema = new Schema
-  _id:
-    type: String
-    ref: "Plunk"
-
-  token:
-    type: String
-
-
-SessionSchema = new Schema
+Session = new Schema
   user:
-    type: Schema.ObjectId
-    ref: "User"
-  user_info: Schema.Types.Mixed
+    name:String
+    surname:String
+    email:String
+    roles:
+      type: [String]
+      default: ['anonym']
+    special:
+      allow: [String]
+      deny: [String]
+    doc:
+      type: Schema.ObjectId
+      ref: "User"
   last_access:
     type: Date,
     index: true,
@@ -26,24 +23,5 @@ SessionSchema = new Schema
   public_id:
     type: String,
     'default': genid
-  auth: {}
-  keychain: [TokenSchema]
 
-SessionSchema.virtual("url").get -> "api/v1/sessions/#{@_id}"
-SessionSchema.virtual("user_url").get -> "api/v1/sessions/#{@_id}/user"
-SessionSchema.virtual("age").get -> Date.now() - @last_access
-
-SessionSchema.set "toJSON",
-  virtuals: true
-  getters: true
-  transform: (session, json, options) ->
-    json.id = json._id
-    
-    json.user = json.user_info if json.user_info
-    
-    delete json.user_info
-    delete json._id
-    delete json.__v
-    
-    json
-exports.SessionSchema = SessionSchema
+module.exports = mongoose.model 'Session', Session

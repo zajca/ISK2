@@ -52,9 +52,23 @@ app =
       require("./routes").load(server)
       views.router(server)
 
-      server.start(->
+      server.start ->
         io = SocketIO.listen(server.listener)
-      )
+        io.on 'connection', (socket)->
+          socket.on 'message', (message)->
+            console.log("Got message: " + message)
+            ip = socket.handshake.address.address
+            url = message;
+            io.sockets.emit 'pageview',
+              'connections': Object.keys(io.connected).length
+              'ip': '***.***.***.' + ip.substring(ip.lastIndexOf('.') + 1)
+              'url': url
+              'xdomain': socket.handshake.xdomain
+              'timestamp': new Date()
+          socket.on 'disconnect', ()->
+            console.log("Socket disconnected")
+            io.sockets.emit 'pageview',
+              'connections': Object.keys(io.connected).length
 
     # console.log server.table()
 
