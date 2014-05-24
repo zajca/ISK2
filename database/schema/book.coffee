@@ -30,12 +30,10 @@ Book = new Schema
       data: Buffer
       contentType: String
   genres:[
-    type: String
-    index: true
+    text:String
   ]
   keywords:[
-    type:String
-    required:false
+    text:String
   ]
   number_of_sales:
     type:Number
@@ -64,9 +62,13 @@ Book = new Schema
     }
   ]
   avaible:Boolean
+  outoforder:Boolean
+  public:Boolean
+  preorder:Boolean
+  out_of_order:Boolean
+
   delivery_msg:String
-  price:
-    type:Number
+  price:Number
   released:Date
   public_from:Date
   buy_allowed_from:Date
@@ -108,9 +110,11 @@ Book.pre 'validate', (next)->
 Book.statics.findOneByUrl = (url, cb)->
   this.findOne({url: url}, cb)
 
-# Book.create = ->
+Book.statics.findOneById = (id, cb)->
+  this.findOne({_id: id}, cb)
 
-# Book.canDownloadBook = ->
+Book.statics.create = (id, cb)->
+  this.findOne({_id: id}, cb)
 
 # EXPORT
 module.exports = mongoose.model 'Book', Book

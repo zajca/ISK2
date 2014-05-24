@@ -21,7 +21,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
       document.createElement('ng:pluralize');
       document.createElement('ng:view');
     <![endif]-->
-  body
+  body(flow-prevent-drop)
     script(type='text/javascript').
       var loadTemplate = "<div id='load_G'>\
           <div id='load_G1' class='load_G'></div>\
@@ -91,13 +91,15 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     <![endif]-->
 
     spinner(ng-cloak)
-    .topMenu(ng-cloak)
+    //- ul#alerts(ng-controller="FlashCtrl") {{alerts}}
+    #alerts(ng-controller="FlashCtrl")
+      alert(ng-repeat="(key, alert) in alerts" type="{{alert.type}}" close="close($index)")
     .content(ng-cloak)
       .navbar.navbar-default(role='navigation', bs-navbar='bs-navbar')
         .navbar-header
           a.navbar-brand(href='#') Administrace
           ul.nav.navbar-nav
-            li(ng-repeat='m in menu' data-match-route='{{m.route}}' ng-class="m.class")
+            li(ng-repeat='m in menu' class="{{m.class}}" ng-class="{active:m.active}")
               a(ng-href="{{m.route}}" target="_self" ng-if="m.route") {{m.name|translate}}
               a(ui-sref="{{m.state}}" ng-if="m.state") {{m.name|translate}}
               a(href ng-if="m.special && !m.icon" title="{{m.name|translate}}" data-placement="bottom" data-template="{{m.template}}" data-animation="am-flip-x" bs-popover) {{m.name|translate}}
@@ -115,13 +117,10 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js')
     script(type='text/javascript').
       $script([
-        '/vendor/scriptjs/dist/script.js'
+        '/vendor/flow.js/dist/flow.min.js'
         ],
         function(){
-          $script([
-            '/build/js/admin.js'
-            ],
-            function(){
+          $script(['/build/js/admin.js'], function(){
                 angular.bootstrap(document, ['admin'])
                 window.loader.parentNode.removeChild(window.loader)
                 window.dim.parentNode.removeChild(window.dim)

@@ -15,6 +15,8 @@ require "./../i10n/cs_cz"
 require "./../../vendor/angular-carousel/dist/angular-carousel"
 require "./../../vendor/angular-strap/dist/angular-strap"
 require "./../../vendor/angular-strap/dist/angular-strap.tpl"
+require "./../../vendor/angular-socket-io/socket"
+require "./../../vendor/angular-gestures/gestures"
 require "./../../vendor/angular-xeditable/dist/js/xeditable"
 require "./../../vendor/ngAnimate-animate.css/animate"
 # require "./../../vendor/auth0-angular/src/auth0-angular"
@@ -68,6 +70,8 @@ module = angular.module("store", [
   "ngAnimate-animate.css"
   "book"
   "auth"
+  "angular-gestures"
+  'btford.socket-io'
 ])
 
 module.constant "CONF", require("./store_dev.json")
@@ -90,3 +94,7 @@ module.config require("./../common/httpInterceptor")
 module.run ["titleService",(titleService) ->
   titleService.setSuffix " | Store"
 ]
+
+module.factory('socketIO', ["socketFactory",(socketFactory)->
+  socketFactory()
+])

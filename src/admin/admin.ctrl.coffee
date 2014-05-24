@@ -3,15 +3,17 @@ module.exports = [
   "$state"
   "$rootScope"
   "$translate"
+  "admin.api"
   (
     $scope
     $state
     $rootScope
     $translate
+    API
   ) ->
 
     $scope.init =->
-  #    API.csrf()
+      API.login()
     $scope.menu=[
       name:"MENU_ADMIN_USERS"
       state: "user.list"
@@ -20,7 +22,7 @@ module.exports = [
       state: "book.list"
     ,
       name:"MENU_ADMIN_STATS"
-      state: "stats.list"
+      state: "stats.view"
     ,
       name:"MENU_STORE"
       route: "/"
@@ -32,7 +34,7 @@ module.exports = [
     $rootScope.$on('$stateChangeSuccess',
     (event, toState)->
       angular.forEach($scope.menu, (value)->
-        if value.state == toState.name
+        if "#{value.state}" == "#{toState.name}"
           value.active = true
         else
           value.active = false

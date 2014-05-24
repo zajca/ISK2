@@ -123,7 +123,9 @@ User.methods.validPassword = (password,cb) ->
       cb(false)
 
 User.methods.createToken = (cb)->
+  console.log "user",this._id
   token = jwt.sign(
+    id: this._id
     name: this.name
     surname:this.surname
     email:this.email

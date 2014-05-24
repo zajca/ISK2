@@ -6,15 +6,17 @@
   "scripts": {
     "test": "gulp dev",
     "postinstall": "./node_modules/bower/bin/bower install --config.interactive=false",
-    "postupdate" : "./node_modules/bower/bin/bower update --config.interactive=false"
+    "postupdate": "./node_modules/bower/bin/bower update --config.interactive=false"
   },
   "author": "Martin Zajíc <zajca@zajca.cz>",
   "license": "MIT",
   "dependencies": {
     "auth0": "^0.5.0",
+    "boom": "^2.4.1",
     "cabrel-hapi-json": "^0.1.2",
     "coffee-script": "^1.7.1",
     "debowerify": "^0.7.1",
+    "gm": "^1.16.0",
     "gridfs-stream": "^0.5.1",
     "hapi": "^4.1.2",
     "hapi-auth-jwt": "^0.1.2",
@@ -25,7 +27,9 @@
     "mongoose": "^3.8.10",
     "mongoose-hash": "^0.2.0",
     "password-filter": "^0.1.0",
-    "socket.io": "^0.9.16"
+    "randomstring": "^1.0.3",
+    "socket.io": "^0.9.16",
+    "yar": "^2.1.0"
   },
   "devDependencies": {
     "angular": "^1.2.16",

@@ -32,6 +32,8 @@
     "angular-ui-utils": "*",
     "angular-carousel": "~0.2.2",
     "angular-ui-layout": "bower",
+    "angular-gestures": "=0.2.2",
+    "hammerjs": "~1.1.2",
     "angular-tree-control": "~0.1.4",
     "angular-xeditable": "~0.1.8",
     "angular-local-storage": "~0.0.3",
@@ -51,6 +53,10 @@
     "angular-cookies": "~1.2.16",
     "auth0.js": "~2.1.4",
     "angular-bootstrap": "~0.11.0",
-    "ng-tags-input": "~2.0.1"
+    "ng-tags-input": "~2.0.1",
+    "ng-flow": "~2",
+    "flow.js": "~2.5.0",
+    "ng-table": "~0.3.2",
+    "angular-socket-io": "~0.6.0"
   }
 }

@@ -31,6 +31,8 @@ module.exports = ["$httpProvider",($httpProvider) ->
       response or $q.when(response)
     responseError: (rejection) ->
       $log.debug "RESPONSE ERROR"
+      if rejection.status == 401
+        window.location = "/login";
       $log.debug rejection
       $q.reject rejection
   ]

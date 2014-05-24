@@ -1,5 +1,6 @@
 'use strict'
 
-module.exports = [()->
-
+module.exports = ["$scope","bookApi", ($scope,api) ->
+  $scope.create = (book)->
+    api.create(book)
 ]

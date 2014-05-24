@@ -1,7 +1,10 @@
 'use strict'
 crypto = require "crypto"
+gm = require('gm')
+Boom = require('boom')
 db = require(process.cwd() + "/database")
 User = db.user
+File = db.file
 
 loginUser = (request, reply) ->
   email = request.payload.email
@@ -31,6 +34,14 @@ init = (request,reply)->
     return console.log(err) if err
     reply(user)
   )
+uploadGrid = (request,reply)->
+  gm(request.payload.file,request.payload.flowFilename).resize(200, 309).noProfile().toBuffer((err,buf)->
+    return reply(Boom.badImplementation()) if err
+    File.put(buf,request.payload.flowFilename,{},(err,doc)->
+      console.log "put cb"
+      reply(doc.currentChunk)
+    )
+  )
 
 ###*
  * ROUTER
@@ -38,7 +49,9 @@ init = (request,reply)->
 prefix="/api/v1"
 module.exports =
   load: (server) ->
-    # require("./me")(server)
+    require("./book")(server)
+    require("./me")(server)
+    require("./user")(server)
     server.route
       method: "POST"
       path: "#{prefix}/login"
@@ -47,9 +60,36 @@ module.exports =
       method: "GET"
       path: "#{prefix}/init"
       handler: init
+    server.route
+      method: "GET"
+      path: "#{prefix}/login"
+      config:
+        auth: 'token'
+      handler: (response,reply)->
+        reply({valid:true})
+    ###*
+     * FILE UPLOAD
+    ###
+    server.route
+      method: "POST"
+      path: "#{prefix}/file"
+      handler: uploadGrid
+    server.route
+      method: "GET"
+      path: "#{prefix}/file"
+      handler: (request,reply)->
+        reply(Boom.notFound())
+    server.route
+      method: "GET"
+      path: "#{prefix}/file/{id}"
+      handler: (request,reply)->
+        File.get(request.params.id,(err,res)->
+          return reply(Boom.notFound()) if err
+          reply(res);
+        )
     # console.log "dsadas",server
   validate: (decodedToken, callback) ->
-    account = User.findOne({email:decodedToken.email})
-    return callback(null, false)  unless user
-    callback err, isValid,
-      name: account.email
+    User.findOne({email:decodedToken.email},(err,user)->
+      return callback(null, false) if err
+      callback(err, true, user)
+    )

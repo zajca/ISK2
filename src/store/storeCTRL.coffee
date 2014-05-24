@@ -6,12 +6,14 @@ m.controller "StoreCtrl", [
   "$rootScope"
   "$translate"
   "$basket"
+  "socketIO"
   (
     $scope
     $state
     $rootScope
     $translate
     $basket
+    socketIO
   ) ->
     
     updateBasket = ->
@@ -61,6 +63,8 @@ m.controller "StoreCtrl", [
 
     $rootScope.$on('$stateChangeSuccess',
     (event, toState)->
+      socketIO.emit("stateChange",{url:toState.name})
+      console.log "event",event
       angular.forEach($scope.menu, (value)->
         if value.state == toState.name
           value.active = true

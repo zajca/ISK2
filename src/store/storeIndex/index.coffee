@@ -4,7 +4,7 @@ require "./../../common/titleService"
 require "./bookDirective"
 
 m = angular.module("store.index.ctrl", ["titleService","store.book.directive"])
-m.factory("index.api",require "./api")
+m.factory("index.api",require("./api"))
 m.controller "StoreIndexCtrl",
 [
   "$scope"

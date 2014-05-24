@@ -1,0 +1,111 @@
+@es_height: 309px;
+@es_width: 200px;
+.slider_wrapper{
+  width:100%;
+  height:@es_height;
+  position:relative;
+  overflow:hidden;
+  margin:0;
+  padding:0;
+  .hoverLeft{
+    height: @es_height;
+    width: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    //border: 1px solid red;
+    &>div{
+      line-height:@es_height;
+      font-size: 30px;
+      .lh-opacity(0.3);
+      div:hover{
+        .lh-opacity(0.6);
+      }
+    }
+  }
+  .hoverRight{
+    height: @es_height;
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    //border: 1px solid red;
+    &>div{
+      line-height:@es_height;
+      font-size: 30px;
+      .lh-opacity(0.3);
+      div:hover{
+        .lh-opacity(0.6);
+      }
+    }
+  }
+  ul.slider{
+    cursor: grab;
+    width:100%;
+    height:@es_height;
+    position:absolute;
+    left:0px;
+    margin:0;
+    padding:0;
+//    overflow:hidden;
+//    white-space: nowrap;
+    .disabled{
+      .lh-opacity(0.5);
+    }
+    li{
+      cursor: pointer;
+      min-height:@es_height;
+      width:@es_width;
+      float:left;
+      position:relative;
+      margin-right:0px;
+      text-align: center;
+      font-size: 10px;
+//      &:first-child,&:last-child{
+//        position: absolute;
+//        width: 40px;
+//        height: @es_height;
+//        background-color: #000000;
+//        z-index: 1;
+//      }
+//      &:first-child{
+//        left:0;
+//      }
+//      &:last-child{
+//        right:0;
+//      }
+      &>div{
+        display: block;
+        position: relative;
+        width: 90px;
+//        padding-right: 10px;
+//        padding-left: 10px;
+      }
+      .price{
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .name{
+        margin-top: 5px;
+        height: 40px;
+      }
+    }
+    li.drag{
+      cursor: grabbing;
+    }
+    img{
+      width:@es_width;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+  }
+  .img{
+    width: 90px;
+    height: 90px;
+    background-color: #B2EDFF;
+  }
+  ul.drag{
+    cursor: grabbing;
+  }
+}

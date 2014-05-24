@@ -1,8 +1,8 @@
 'use strict'
 
 require "./router"
-
-m = angular.module("auth",["auth.router"])
+require "./../../../vendor/angular-local-storage/angular-local-storage"
+m = angular.module("auth",["auth.router","LocalStorageModule"])
 m.factory "authService", require("./authService")
 m.controller "LoginCtrl", require("./loginCtrl")
 m.config require("./authIterceptor")

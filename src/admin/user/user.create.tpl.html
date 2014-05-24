@@ -11,7 +11,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="name">Jméno</label>
   <div class="col-md-6">
-      <input id="name" name="name" type="text" placeholder="Jméno uživatele" ng-model="user.name" class="form-control input-md" required="">
+      <input id="name" name="name" type="text" placeholder="Jméno uživatele" class="form-control input-md" ng-model="user.name" required="">
       <span class="help-block">Zadejte jméno uživate</span>
   </div>
 </div>
@@ -20,7 +20,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="surname">Příjmení</label>
   <div class="col-md-6">
-      <input id="surname" name="surname" type="text" placeholder="Příjmení uživatele" ng-model="user.surname" class="form-control input-md" required="">
+      <input id="surname" name="surname" type="text" placeholder="Příjmení uživatele" class="form-control input-md" ng-model="user.surname" required="">
       <span class="help-block">Zadejte příjmení uživatele</span>
   </div>
 </div>
@@ -29,26 +29,26 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="email">Email</label>
       <div class="col-md-6">
-      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" required="" ng-model="user.email">
+      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md" ng-model="user.email" required="">
   </div>
 </div>
-
-<!-- File Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="picture">Profilová fotografie</label>
-  <div class="col-md-4">
-    <input id="picture" name="picture" class="input-file" type="file" ng-model="user.img">
-  </div>
-</div>
-
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="locale">Preferovaný jazyk</label>
   <div class="col-md-6">
     <select id="locale" name="locale" class="form-control" ng-model="user.locale">
-      <option value="1">CZ</option>
-      <option value="2">EN</option>
+      <option value="CZ">CZ</option>
+      <option value="EN">EN</option>
     </select>
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Heslo</label>
+  <div class="col-md-6">
+    <input id="password" name="password" type="password" placeholder="Změnit heslo" class="form-control" ng-model="user.password" input-md>
+
   </div>
 </div>
 
@@ -93,7 +93,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="save"></label>
   <div class="col-md-4">
-    <div id="save" name="save" ng-click="save(user)" class="btn btn-warning">Uložit</div>
+    <button id="save" name="save" ng-click="create(user)" class="btn btn-warning">Uložit</button>
   </div>
 </div>
 <pre>

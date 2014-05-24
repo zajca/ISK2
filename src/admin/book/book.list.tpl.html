@@ -1,1 +1,23 @@
-<div class="btn btn-primary" ui-sref="book.create">NEW</div>
+<div class="container">
+<div clas="col-md-12">
+  <div class="btn btn-primary" ui-sref="book.create">NEW</div>
+  <div ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
+  <div ng-click="tableParams.filter({})" class="btn btn-default pull-right">Zrušit filter</div>
+      <table ng-table="tableParams" show-filter="true" class="table">
+          <tr ng-repeat="book in $data">
+              <td data-title="'Název'" filter="{ 'name': 'text' }" sortable="'name'">
+                  {{book.name}}
+              </td>
+              <td data-title="'Autor'" filter="{ 'author': 'text' }" sortable="'author'">
+                  {{book.author}}
+              </td>
+              <td data-title="'Upravit'">
+                <div class="btn btn-info" ui-sref="book.edit({id:book._id})"><i class="fa fa-pencil-square-o"></i> Upravit</div>
+              </td>
+              <td data-title="'Smazat'">
+                <div class="btn btn-danger" ng-click="remove(book._id,$index)"><i class="fa fa-times"></i> Smazat</div>
+              </td>
+          </tr>
+      </table>
+    </div>
+    </div>

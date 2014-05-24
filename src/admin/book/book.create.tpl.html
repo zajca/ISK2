@@ -1,8 +1,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-<!-- <form class="form-horizontal" ng-controller="BookEditCtrl"> -->
-<form class="form-horizontal">
+<form class="form-horizontal" ng-controller="BookCreateCtrl">
   <fieldset>
 
   <!-- Form Name -->
@@ -46,11 +45,11 @@
             <img flow-img="$flow.files[0]" />
           </div>
           <div>
-            <div href="#" class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Vybrat obrázek</div>
-            <div href="#" class="btn btn-warning" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Změnit</div>
+            <div href="#" class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</div>
+            <div href="#" class="btn btn-warning" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</div>
             <div href="#" class="btn btn-danger" ng-show="$flow.files.length"
                ng-click="$flow.cancel()">
-              Odstranit
+              Remove
             </div>
           </div>
           <p>
@@ -103,25 +102,25 @@
         <input type="checkbox" name="settings" id="settings-0" value="0" ng-model="book.public">
         Uveřejnit na webu
       </label>
-    </div>
+  	</div>
     <div class="checkbox">
       <label for="settings-1">
         <input type="checkbox" name="settings" id="settings-1" value="0" ng-model="book.preorder">
         Umožnost předobjednávky
       </label>
-    </div>
+  	</div>
     <div class="checkbox">
       <label for="settings-2">
         <input type="checkbox" name="settings" id="settings-2" value="0" ng-model="book.avaible">
         Umožnit koupi
       </label>
-    </div>
+  	</div>
     <div class="checkbox">
       <label for="settings-3">
         <input type="checkbox" name="settings" id="settings-3" value="0" ng-model="book.out_of_order"> 
         Již se neprodává
       </label>
-    </div>
+  	</div>
     </div>
   </div>
 
@@ -163,7 +162,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="save"></label>
     <div class="col-md-4">
-      <button id="save" name="save" class="btn btn-warning" ng-click="save(book)">Uložit</button>
+      <button id="save" name="save" class="btn btn-warning" ng-click="create(book)">Uložit</button>
     </div>
   </div>
 

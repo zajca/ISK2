@@ -14,5 +14,4 @@ module.exports = [
     # $scope.languageModal =
     #   title: "Title"
     #   content: "Hello Modal<br />This is a multiline message!"
-  
 ]

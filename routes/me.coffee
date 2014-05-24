@@ -98,6 +98,8 @@ module.exports = (server) ->
   server.route
     method: "GET"
     path: "#{prefix}"
+    config:
+      auth: 'token'
     handler: showMe
 
   ###*
@@ -106,6 +108,8 @@ module.exports = (server) ->
   server.route
     method: "PUT"
     path: "#{prefix}"
+    config:
+      auth: 'token'
     handler: updateMe
 
   ###*
@@ -114,6 +118,8 @@ module.exports = (server) ->
   server.route
     method: "GET"
     path: "#{prefix}/book"
+    config:
+      auth: 'token'
     handler: listBook
 
   ###*
@@ -122,6 +128,8 @@ module.exports = (server) ->
   server.route
     method: "GET"
     path: "#{prefix}/book/:id"
+    config:
+      auth: 'token'
     handler: showBook
 
   ###*
@@ -130,6 +138,8 @@ module.exports = (server) ->
   server.route
     method: "PUT"
     path: "#{prefix}/book/:id"
+    config:
+      auth: 'token'
     handler: updateBook
 
   ###*
@@ -138,6 +148,8 @@ module.exports = (server) ->
   server.route
     method: "GET"
     path: "#{prefix}/project/:id"
+    config:
+      auth: 'token'
     handler: showProject
 
   ###*
@@ -146,6 +158,8 @@ module.exports = (server) ->
   server.route
     method: "GET"
     path: "#{prefix}/project"
+    config:
+      auth: 'token'
     handler: listProject
 
   ###*
@@ -154,6 +168,8 @@ module.exports = (server) ->
   server.route
     method: "POST"
     path: "#{prefix}/project"
+    config:
+      auth: 'token'
     handler: createProject
 
   ###*
@@ -162,4 +178,6 @@ module.exports = (server) ->
   server.route
     method: "PUT"
     path: "#{prefix}/project/:id"
+    config:
+      auth: 'token'
     handler: updateProject

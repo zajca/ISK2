@@ -10,15 +10,18 @@ module.exports = ["$stateProvider",($stateProvider) ->
         template: "<ui-view/>"
     ).state("book.list",
       url: "/list"
-      templateUrl: "/build/partials/admin/book/book.list.tpl.html"
       controller: "BookListCtrl"
+      templateUrl: "/build/partials/admin/book/book.list.tpl.html"
+      resolve:
+        books: (bookApi) ->
+          bookApi.fetch()
     ).state("book.create",
       url: "/create"
-      templateUrl: "/build/partials/admin/book/book.edit.tpl.html"
       controller: "BookCreateCtrl"
+      templateUrl: "/build/partials/admin/book/book.edit.tpl.html"
     ).state("book.edit",
       url: "/edit/:id"
-      templateUrl: "/build/partials/admin/book/book.edit.tpl.html"
       controller: "BookEditCtrl"
+      templateUrl: "/build/partials/admin/book/book.edit.tpl.html"
     )
   ]

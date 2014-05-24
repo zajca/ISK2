@@ -1,5 +1,5 @@
-module.exports = ["$window", "$location", "$rootScope", "SessionService","FlashService","$translate","$http","CONF","$sanitize"
-  ($window, $location, $rootScope, SessionService,FlashService,$translate,$http,CONF,$sanitize) ->
+module.exports = ["$window", "$location", "$rootScope", "localStorageService","SessionService","FlashService","$translate","$http","CONF","$sanitize"
+  ($window, $location, $rootScope, ls, SessionService,FlashService,$translate,$http,CONF,$sanitize) ->
     message = ""
     user =
       email: ""
@@ -13,13 +13,20 @@ module.exports = ["$window", "$location", "$rootScope", "SessionService","FlashS
     uncacheSession = ->
       SessionService.unset("token")
       SessionService.unset("email")
-      SessionService.unset("userId")
+      SessionService.unset("id")
+      ls.clearAll()
     cacheSession = (data)->
       console.log "cache",data
       SessionService.set("token",data.token)
+      ls.set("token",data.token)
+
       user = angular.fromJson($window.atob(data.token.split(".")[1]))
+      console.log user
       SessionService.set("email",user.email)
-      SessionService.set("userId",user.userId)
+      SessionService.set("id",user.id)
+
+      ls.set("email",user.email)
+      ls.set("id",user.id)
 
     login: (user)->
       n = FlashService.show($translate("FLASH_REQUEST_LOGIN"))
