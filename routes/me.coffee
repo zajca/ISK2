@@ -8,7 +8,7 @@ Order = db.order
 ###
 showMe   = (request, reply) ->
   User.findById(request.auth.credentials._id)
-  .populate('favourite_books','whished_books','orders')
+  .populate('favourite_books','whished_books')
   .exec((err, docs) ->
     return reply({"flash":err}) if err
     delete docs.password

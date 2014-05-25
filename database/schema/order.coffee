@@ -4,7 +4,7 @@ Schema = mongoose.Schema
 ###
 SCHEMA
 ###
-Order = new Schema
+OrderSchema = new Schema
   user:
     name:
       type:String
@@ -99,4 +99,4 @@ Order = new Schema
     default: Date.now
 
 # EXPORT
-module.exports = mongoose.model 'Order', Order
+module.exports = mongoose.model('Order', OrderSchema)

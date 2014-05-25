@@ -87,46 +87,16 @@ html#ng-app(xmlns:ng='http://angularjs.org', data-ng-csp='data-ng-csp', lang='cs
     #subnav.navbar.navbar-default
       .col-md-12
         .navbar-header
-          a.navbar-btn.btn.btn-default.btn-plus.dropdown-toggle(href='#', style='margin-left: 15px;', data-toggle='dropdown')
-            i.glyphicon.glyphicon-home(style='color: #dd1111;')
-            | Home
-            small
-              i.glyphicon.glyphicon-chevron-down
-          ul.nav.dropdown-menu
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-user(style='color: #1111dd;')
-                | Profile
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-dashboard(style='color: #0000aa;')
-                | Dashboard
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-inbox(style='color: #11dd11;')
-                | Pages
-            li.nav-divider
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-cog(style='color: #dd1111;')
-                | Settings
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-plus
-                | More..
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-collapse2')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+          .navbar-btn.btn.btn-default.btn-plus.dropdown-toggle(style='margin-left: 15px;' ng-click="toogleProjectDropdown = !toogleProjectDropdown") Projekty
+            ul.dropdown.am-flip-x(ng-if="toogleProjectDropdown")
+              li(ng-repeat="p in projects")
+                a(ui-sref="project.view({id:p._id})") {{p.name}}
         #navbar-collapse2.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
-            li.active
-              a(href='#') Posts
             li
-              a(href='#loginModal', role='button', data-toggle='modal') Login
+              a(href="/logout", role='button') Logout
             li
-              a(href='#aboutModal', role='button', data-toggle='modal') About
+              a(href='/logout', role='button') Logout
     #main.container
       .row
         .col-md-4.col-sm-6
