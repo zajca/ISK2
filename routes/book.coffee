@@ -10,8 +10,8 @@ showBook = (request, reply) ->
   if !!request.params.all
     Book.findById(
       request.params.id
-    ).populate('owner','buyers'
-    ).exec((err, docs) ->
+    ).populate('owner','buyers')
+    .exec((err, docs) ->
       return reply({"flash":err}) if err
       reply(docs)
     )

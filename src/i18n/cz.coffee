@@ -7,6 +7,7 @@ m.config ["$translateProvider",($translateProvider) ->
   FLASH_UNKNOWN_ERROR: "Neznámá chyba"
   FLASH_REQUEST_FOR_PROJECT:"Stahuji knihu,…"
   FLASH_REQUEST_FOR_BOOKS: "Stahuji knihy,…"
+  FLASH_REQUEST_FOR_BOOK: "Stahuji knihu,…"
   FLASH_REQUEST_UPDATE_PROJECT: "Probíhá ukládání,…"
   FLASH_REQUEST_RENDER_PROJECT: "Probíhá render,…"
   FLASH_CREATING_BOOK: "Vytvářím knihu ,…"

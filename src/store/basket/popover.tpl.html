@@ -1,10 +1,9 @@
 <div class="popover" style="width:500px;left: -134px;max-width:400px;">
   <div class="arrow"></div>
     <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
-    <div class="popover-content">
-      <div class="panel" ng-controller="basketCtrl" ng-init="update()">
+    <div class="popover-content" ng-controller="basketCtrl" ng-init="update()">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <ul>
               <li ng-repeat="item in items" class="row">
                 <div class="col-md-8">{{item.name}}</div>
@@ -14,12 +13,14 @@
                 <button class="btn btn-danger col-md-1 btn-xs" ng-click="$basket.removeByIndex($index);update();"><i class="fa fa-times"></i></button></li>
             </ul>
           </div>
-          <div class="col-md-4">
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-12">
             <div>Počet položek: {{$basket.sum().n}}</div>
             <div>Celková cena: {{$basket.sum().price}}</div>
             <button class="btn btn-warning" ng-click="$basket.clear();$hide();">zrušit</button>
           </div>
-        </div>
       </div>
     </div>
   </div>

@@ -1,73 +1,43 @@
 <div class="container">
-<div class="row">
-<div class="col-md-12">
-<!-- Form Name -->
-<legend>{{book.name}} {{book.surname}}</legend>
 
-<!-- Text input-->
 <div class="row">
-  <div class="col-md-4 " for="name">Název</div>
-  <div class="col-md-6">
-      {{book.name}}
+  <div class="col-md-12">
+    <h2>{{book.name}}</h2>
   </div>
 </div>
 
-<!-- Text input-->
 <div class="row">
-  <div class="col-md-4 " for="surname">Příjmení</div>
-  <div class="col-md-6">
-      {{book.surname}}
+  <div class="col-md-6 col-sm-12 pull-right">
+  foto
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="list-group">
+          <div>Autor: {{book.name}}</div>
+          <div>Počet stran: {{book.pages}}</div>
+          <div>Dostupnost: {{book.delivery_msg}}</div>
+          <div>Žánr: <span ng-repeat="genre in book.genres">{{genre.text}}</span></div>
+          <div>Klíče: <span ng-repeat="key in book.keywords">{{key.text}}</span></div>
+        </div>
+        <ul class="list-inline pull-right">
+          <li><a href ng-click="$basket.add(book,1)"><i class="fa fa-shopping-cart"></i> Koupit</a></li>
+          <li><a href ng-click="favourite(book._id)"><i class="fa fa-star"></i> Oblíbit</a></li>
+          <li><a href ng-click="whish(book._id)"><i class="fa fa-bullhorn"></i> Přát si</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Text input-->
 <div class="row">
-  <div class="col-md-4 " for="email">Email</div>
-  <div class="col-md-6">
-    {{book.email}}
+  <div class="col-md-12 col-sm-12">
+    <div class="well">
+        {{book.description}}
+    </div>
   </div>
 </div>
-
-
-<!-- Select Basic -->
-<div class="row">
-  <div class="col-md-4 " for="locale">Preferovaný jazyk</div>
-  <div class="col-md-6">
-  {{book.locale}}
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="row">
-  <div class="col-md-4 " for="tel">Telefon</div>
-  <div class="col-md-6">
-  {{book.tel}}
-  </div>
-</div>
-
-<!-- Select Multiple -->
-<div class="row">
-  <div class="col-md-4 " for="roles">Uživatelské role</div>
-  <div class="col-md-6">
-    {{book.roles}}
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="row">
-  <div class="col-md-4 " for="special.access">Přidělená práva</div>
-  <div class="col-md-4">
-    {{special.access}}
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="row">
-  <div class="col-md-4 " for="special.deny">Odebraná práva</div>
-  <div class="col-md-4">
-    {{special.deny}}
-  </div>
-</div>
-</div>
-</div>
+<pre>
+{{book|json}}
+</pre>
 </div>

@@ -37,13 +37,9 @@ addUrl = (page)->
   if (typeof page.url == 'undefined')
     page.url = url(page.name)
 
-#KONTROLA URL
-Book.pre 'validate', (next)->
-  addUrl this
-  next()
 
 #HLEDANI PODLE URL
-Book.statics.findOneByUrl = (url, cb)->
+Page.statics.findOneByUrl = (url, cb)->
   this.findOne({url: url}, cb)
 # Book.create = ->
 

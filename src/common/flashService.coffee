@@ -35,7 +35,7 @@ m.factory "FlashService", [
           _value.closable = true
           _value.ok=true
           console.log "FlashService.value",_value
-          $timeout =>
+          _value.timeout = $timeout (key)->
             $rootScope.alerts.splice(key, 1)
           ,4000
 
@@ -43,9 +43,16 @@ m.factory "FlashService", [
       $log.debug("FlashService.err",id,msg)
       angular.forEach $rootScope.alerts,(value,key)->
         if value.id==id
-          value.type="danger"
-          value.closable = true
-          value.err=msg.message
+          _value = $rootScope.alerts[key]
+          _value.type="danger"
+          _value.closable = true
+          if msg? and msg.flash?
+            _value.err = flash.message
+          else
+            _value.err = "Chyba"
+          _value.timeout = $timeout (key)->
+            $rootScope.alerts.splice(key, 1)
+          ,10000
 
     close: (id) ->
       $log.debug("FlashService.close",id)

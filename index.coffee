@@ -21,8 +21,16 @@ config  = require("./config").getConfig(process.env.ENV)
 #DB
 db = require('./database')
 db.setUp(config)
+Order = db.order
 User = db.user
+File = db.file
 Book = db.book
+Troubleshot: db.troubleshot
+Branch: db.branch
+Config: db.config
+Log: db.log
+Pages: db.pages
+Project: db.project
 
 ###*
  * MAIN SERVER CONFIG

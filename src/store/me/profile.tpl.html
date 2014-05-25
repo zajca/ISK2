@@ -1,73 +1,104 @@
 <div class="container">
 <div class="row">
-<div class="col-md-12">
-<!-- Form Name -->
-<legend>{{user.name}} {{user.surname}}</legend>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <!-- Form Name -->
+        <h2>{{user.name}} {{user.surname}}</h2>
 
-<!-- Text input-->
-<div class="row">
-  <div class="col-md-4 " for="name">Jméno</div>
-  <div class="col-md-6">
-      {{user.name}}
+        <!-- Text input-->
+        <div class="row">
+          <div class="col-md-4 " for="name">Jméno</div>
+          <div class="col-md-6">
+              {{user.name}}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="row">
+          <div class="col-md-4 " for="surname">Příjmení</div>
+          <div class="col-md-6">
+              {{user.surname}}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="row">
+          <div class="col-md-4 " for="email">Email</div>
+          <div class="col-md-6">
+            {{user.email}}
+          </div>
+        </div>
+
+
+        <!-- Select Basic -->
+        <div class="row">
+          <div class="col-md-4 " for="locale">Preferovaný jazyk</div>
+          <div class="col-md-6">
+          {{user.locale}}
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="row">
+          <div class="col-md-4 " for="tel">Telefon</div>
+          <div class="col-md-6">
+          {{user.tel}}
+          </div>
+        </div>
+
+        <!-- Select Multiple -->
+        <div class="row">
+          <div class="col-md-4 " for="roles">Uživatelské role</div>
+          <div class="col-md-6">
+            {{user.roles}}
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="row">
+          <div class="col-md-4 " for="special.access">Přidělená práva</div>
+          <div class="col-md-4">
+            {{special.access}}
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="row">
+          <div class="col-md-4 " for="special.deny">Odebraná práva</div>
+          <div class="col-md-4">
+            {{special.deny}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- Text input-->
 <div class="row">
-  <div class="col-md-4 " for="surname">Příjmení</div>
-  <div class="col-md-6">
-      {{user.surname}}
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Oblíbené</h3>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- Text input-->
 <div class="row">
-  <div class="col-md-4 " for="email">Email</div>
-  <div class="col-md-6">
-    {{user.email}}
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Zakoupené</h3>
+      </div>
+    </div>
   </div>
 </div>
-
-
-<!-- Select Basic -->
 <div class="row">
-  <div class="col-md-4 " for="locale">Preferovaný jazyk</div>
-  <div class="col-md-6">
-  {{user.locale}}
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Přeju si</h3>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="row">
-  <div class="col-md-4 " for="tel">Telefon</div>
-  <div class="col-md-6">
-  {{user.tel}}
-  </div>
-</div>
-
-<!-- Select Multiple -->
-<div class="row">
-  <div class="col-md-4 " for="roles">Uživatelské role</div>
-  <div class="col-md-6">
-    {{user.roles}}
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="row">
-  <div class="col-md-4 " for="special.access">Přidělená práva</div>
-  <div class="col-md-4">
-    {{special.access}}
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="row">
-  <div class="col-md-4 " for="special.deny">Odebraná práva</div>
-  <div class="col-md-4">
-    {{special.deny}}
-  </div>
-</div>
-</div>
 </div>
 </div>

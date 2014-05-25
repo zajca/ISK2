@@ -48,7 +48,7 @@ module.exports = ["$scope","socketIO","ngTableParams","$filter",($scope,io,ngTab
     io.on 'pageview', (msg)->
       $scope.connections = msg.connections || 0
       if msg.ip?
-        data.push(msg)
+        data.unshift(msg)
         stats(msg)
         $scope.tableParams.reload()
 ]

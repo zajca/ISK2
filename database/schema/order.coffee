@@ -64,8 +64,9 @@ Order = new Schema
   states:[
     name:String
     description:String
-    date:Date
-    default: Date.now
+    date:
+      type:Date
+      default: Date.now
   ]
   custom_id:String
   custom_description:String
@@ -76,14 +77,14 @@ Order = new Schema
     street: String
     postal: Number
     home_number: Number
-    type: String
+    comment: String
   destination_address:
     state: String
     city: String
     street: String
     postal: Number
     home_number: Number
-    type: String
+    comment: String
   meta: [
       {
         key: String

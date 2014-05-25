@@ -32,6 +32,7 @@ require "./../common/titleService"
 require "./../common/bind-html-unsafe"
 require "./../common/matchDirective"
 require "./../common/slider"
+require "./../common/alert"
 #CTRL
 require "./storeCTRL"
 require "./storeIndex/routes"
@@ -72,6 +73,7 @@ module = angular.module("store", [
   "auth"
   "angular-gestures"
   'btford.socket-io'
+  "alert"
 ])
 
 module.constant "CONF", require("./store_dev.json")

@@ -90,6 +90,8 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
         |Your browser is too old for this app
       .dim
     <![endif]-->
+    #alerts(ng-controller="FlashCtrl")
+      alert(ng-repeat="(key, alert) in alerts" type="{{alert.type}}" close="close($index)")
     .content(ng-cloak)
       .navbar.navbar-default(role='navigation', bs-navbar='bs-navbar')
         .navbar-header

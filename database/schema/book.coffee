@@ -61,6 +61,9 @@ Book = new Schema
         ref: "User"
     }
   ]
+  render:
+    type: Schema.Types.ObjectId
+    ref: "File"
   avaible:Boolean
   outoforder:Boolean
   public:Boolean

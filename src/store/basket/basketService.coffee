@@ -3,6 +3,7 @@
 
 module.exports = ["localStorageService","$rootScope",(ls,root) ->
   add: (item,n)->
+    console.log item
     items = ls.get('basketItems') || []
     item.n = n || 1
     items.push item

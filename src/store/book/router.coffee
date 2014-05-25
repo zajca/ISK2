@@ -8,12 +8,13 @@ module.exports = ["$stateProvider",($stateProvider) ->
       main:
         template: "<ui-view/>"
   ).state("book.view",
-    url: "/book/:id"
+    url: "/:id"
     controller: "bookViewCtrl"
     templateUrl: "/build/partials/store/book/book.view.tpl.html"
     resolve:
-      book: ["$stateParams","bookApi",(params,api)->
-        api.getBook(params.id)
-      ]
+      book: ($stateParams,bookApi)->
+        bookApi.getBook($stateParams.id).then((res)->
+          res.data
+        )
   )
 ]
