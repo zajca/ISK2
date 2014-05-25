@@ -13,7 +13,9 @@ Book = db.book
  * @return {[type]}         [description]
 ###
 showMe   = (request, reply) ->
-  reply.view "store"
+  delete request.auth.credentials.password
+  delete request.auth.credentials.passwordSalt
+  reply(request.auth.credentials)
 
 ###*
  * update loged user
@@ -22,7 +24,17 @@ showMe   = (request, reply) ->
  * @return {[type]}         [description]
 ###
 updateMe   = (request, reply) ->
-  reply.view "admin"
+  delete request.payload._id
+  console.log "updateMe",request.payload
+  User.update(
+    _id:request.auth.credentials._id
+  ,request.payload
+  ).exec((err, docs) ->
+    return reply({"flash":err}) if err
+    delete docs.password
+    delete docs.passwordSalt
+    reply(docs)
+  )
 
 ###*
  * list of book for actual user

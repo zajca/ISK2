@@ -34,9 +34,12 @@ module.exports =
       handler: store
     server.route
       method: "GET"
-      path: "/user/{path*}"
+      path: "/me/{path*}"
       handler: store
-
+    server.route
+      method: "GET"
+      path: "/register/{path*}"
+      handler: store
 
     server.route
       method: "GET"

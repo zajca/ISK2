@@ -8,7 +8,7 @@ module.exports = ["$timeout","index.api","$log","$interval",($timeout,api,$log,$
   template:'
   <div class="slider_wrapper">
   <ul class="slider" hm-drag-left="dragLeft($event)" hm-drag-right="dragRight($event)" hm-dragend="dragEnd()" ng-class="{drag:draging}" msd-wheel="wheel($event)">
-    <li ng-repeat="m in model track by $index" ui-sref="book.detail({id:m._id})">
+    <li ng-repeat="m in model track by $index" ui-sref="book.view({id:m._id})" class="dn-fade-down">
       <img ng-src="m.img.small" onError="this.onerror=null;this.src=\'http://placehold.it/200x309/6888cea/ffffff/kniha\';"/>
       <div ng-if="hover">
         {{m.description}}

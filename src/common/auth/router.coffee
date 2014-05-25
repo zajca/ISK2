@@ -10,6 +10,12 @@ m.config(
         main:
           controller: "LoginCtrl"
           templateUrl: "/build/partials/common/auth/login.tpl.html"
+    ).state("register",
+      url: "/register"
+      views:
+        main:
+          controller: "RegisterCtrl"
+          templateUrl: "/build/partials/common/auth/register.tpl.html"
     )
   ]
 )

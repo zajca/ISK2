@@ -1,6 +1,6 @@
 'use strict'
-
-require "./router"
-
-m = angular.module("book",["book.router"])
-m.controller "bookCtrl", require("./bookCtrl")
+m = angular.module("book",[])
+m.controller "bookViewCtrl", require("./bookViewCtrl")
+m.factory "bookApi", require("./api")
+m.config require("./router")
+module.exports = m

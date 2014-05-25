@@ -40,10 +40,7 @@ m.controller "StoreCtrl", [
       route: "/storage"
     ,
       name:"MENU_REGISTER"
-      route: undefined
-      special: "register"
-      class: "pull-right"
-      template: "/build/partials/store/user/register.tpl.html"
+      state: "register"
     # ,
     #   name:"MENU_LOGIN"
     #   route: undefined

@@ -4,8 +4,6 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     title
     style(type='text/css').
       [ng-cloak] {display: none;}
-    script(type='text/javascript').
-      document.write('<base href="' + document.location + '" />');
     //- script(src="/socket.io/socket.io.js")
     meta(name='viewport', content='user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
     meta(charset='UTF-8')
@@ -105,7 +103,7 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
                 i(class="fa {{m.icon}}")
             li(basket-icon)
             li(settings-icon)
-      .anim(ui-view='main' class="dn-flip-x")
+      .anim(ui-view='main' class="dn-fade-down")
 
     <!--[if lt IE 8]>
     script(src="/vendor/json2/json2.js")

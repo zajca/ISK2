@@ -8,14 +8,9 @@ module.exports = [() ->
   controller: ["$scope",($scope)->
     $scope.dropdown = [
       {
-        icon: "fa-flag"
-        text: 'LANGUAGE'
-        modal: "languageModal"
-      }
-      {
         icon: "fa-male"
         text: 'PROFILE'
-        modal: "profileModal"
+        href: "me.profile"
       }
       {
         divider: true
@@ -23,7 +18,7 @@ module.exports = [() ->
       {
         icon: "fa-pencil"
         text: 'EDIT_SECTION'
-        href: "edit"
+        href: "me.edit"
       }
       {
         divider: true
@@ -31,7 +26,7 @@ module.exports = [() ->
       {
         icon: "fa-sign-out"
         text: "LOGOUT"
-        href: "#separatedLink"
+        href: "logout"
       }
     ]
   ]

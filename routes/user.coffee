@@ -62,10 +62,10 @@ findUser = (request, reply) ->
 ###*
  * ROUTER
 ###
+prefix="/api/v1/user"
 module.exports = (server) ->
-  prefix="/api/v1/user"
   ###*
-   * book one populate
+   * user one populate
   ###
   server.route
     method: "GET"
@@ -77,16 +77,14 @@ module.exports = (server) ->
     path: "#{prefix}/{id}/{all?}"
     handler: showUser
   ###*
-   * update book
+   * update user
   ###
   server.route
     method: "POST"
     path: "#{prefix}"
-    config:
-      auth: 'token'
     handler: createUser
   ###*
-   * update book
+   * update user
   ###
   server.route
     method: "PUT"

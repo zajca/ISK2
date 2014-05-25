@@ -1,0 +1,73 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<!-- Form Name -->
+<legend>{{book.name}} {{book.surname}}</legend>
+
+<!-- Text input-->
+<div class="row">
+  <div class="col-md-4 " for="name">Název</div>
+  <div class="col-md-6">
+      {{book.name}}
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="row">
+  <div class="col-md-4 " for="surname">Příjmení</div>
+  <div class="col-md-6">
+      {{book.surname}}
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="row">
+  <div class="col-md-4 " for="email">Email</div>
+  <div class="col-md-6">
+    {{book.email}}
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+<div class="row">
+  <div class="col-md-4 " for="locale">Preferovaný jazyk</div>
+  <div class="col-md-6">
+  {{book.locale}}
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="row">
+  <div class="col-md-4 " for="tel">Telefon</div>
+  <div class="col-md-6">
+  {{book.tel}}
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="row">
+  <div class="col-md-4 " for="roles">Uživatelské role</div>
+  <div class="col-md-6">
+    {{book.roles}}
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="row">
+  <div class="col-md-4 " for="special.access">Přidělená práva</div>
+  <div class="col-md-4">
+    {{special.access}}
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="row">
+  <div class="col-md-4 " for="special.deny">Odebraná práva</div>
+  <div class="col-md-4">
+    {{special.deny}}
+  </div>
+</div>
+</div>
+</div>
+</div>

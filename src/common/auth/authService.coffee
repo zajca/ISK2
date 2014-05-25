@@ -49,6 +49,19 @@ module.exports = ["$window", "$location", "$rootScope", "localStorageService","S
         FlashService.err(id,res.flash)
       http
 
+    register: (user)->
+      $translate("FLASH_REQUEST_FOR_REGISTER_USER").then((trans)->
+        FlashService.show(trans,"info",(n)->
+          http = $http.post("#{CONF.apiUrl}user",user)
+          http.then (res)->
+            FlashService.done(n)
+            FlashService.show($translate("FLASH_REQUEST_FOR_REGISTER_USER_DONE"))
+          ,(res)->
+            FlashService.err(n,res.flash)
+          http
+        )
+      )
+
     logout: ->
       n = FlashService.show($translate("FLASH_REQUEST_FOR_LOGOUT"))
       http = $http.get("#{CONF.apiUrl}logout")

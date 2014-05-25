@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="email" class="control-label">{{'EMAIL'|translate}}</label>
+    <input type="email" ng-model="user.email" name="email" id="email" placeholder="{{'EMAIL'|translate}}" required="required" class="form-control" unique-username="unique-email" autofocus="autofocus"/>
+    <i ng-show="busy" class="halflings-icon refresh rotating"></i>
+    <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.required" class="help-block">{{'PLEASE_CHOOSE_EMAIL'|translate}}</span>
+    <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.isTaken" class="help-block">{{'EMAIL_ALREADY_REGISTERED'|translate}}</span>
+    <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.invalidChars" class="help-block">{{'INVALID_CHARACTERS'|translate}}</span>
+    <span ng-show="form.email.$dirty &amp;&amp; form.email.$error.email" class="help-block">{{'EMAIL_IS_NOT_VALID'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="name" class="control-label">{{'NAME'|translate}}</label>
+    <input type="name" name="name" id="name" ng-model="user.name" required="required" class="form-control"/>
+    <span ng-show="form.name.$dirty &amp;&amp; form.name.$error.required" class="help-block">{{'PLEASE_ENTER_NAME'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="surname" class="control-label">{{'SURNAME'|translate}}</label>
+    <input type="surname" name="surname" id="surname" ng-model="user.surname" required="required" match="verification" class="form-control"/>
+    <span ng-show="form.surname.$dirty &amp;&amp; form.surname.$error.required" class="help-block">{{'PLEASE_ENTER_SURNAME'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="tel" class="control-label">{{'TEL'|translate}}</label>
+    <input type="tel" name="tel" id="tel" ng-model="user.tel" required="required" match="verification" class="form-control"/>
+    <span ng-show="form.tel.$dirty &amp;&amp; form.tel.$error.required" class="help-block">{{'PLEASE_ENTER_TEL'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="password" class="control-label">{{'PASSWORD'|translate}}</label>
+    <input type="password" name="password" id="password" ng-model="user.password" required="required" match="verification" class="form-control"/><span ng-show="form.password.$dirty &amp;&amp; form.password.$error.required" class="help-block">{{'PLEASE_ENTER_PASSWORD'|translate}}</span>
+  </div>
+  <div class="form-group">
+    <label for="verification" class="control-label">{{'PASSWORD_AGAIN'|translate}}</label>
+    <input type="password" name="verification" id="verification" ng-model="verification" required="required" match="password" class="form-control"/><span ng-show="form.verification.$dirty &amp;&amp; form.verification.$error.required" class="help-block">{{'PLEASE_REPEATE_YOUR_PASSWORD'|translate}}</span><span ng-show="form.verification.$dirty &amp;&amp; form.verification.$error.match &amp;&amp; !form.verification.$error.required" class="help-block">{{'PASS_DOT_MATCH'|translate}}</span>
+  </div>
+  <div ng-disabled="form.$invalid" class="btn btn-primary" ng-click="save(user)">{{'SIGN_UP_BUTTON'|translate}}</div>
+</form>
+</div>
+</div>
+</div>
