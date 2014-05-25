@@ -57,6 +57,8 @@
     "ng-flow": "~2",
     "flow.js": "~2.5.0",
     "ng-table": "~0.3.2",
-    "angular-socket-io": "~0.6.0"
+    "angular-socket-io": "~0.6.0",
+    "angular-file-upload": "~0.5.6",
+    "angular-pdf": "~0.1.3"
   }
 }

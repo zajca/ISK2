@@ -1,23 +1,11 @@
 'use strict'
-module.exports = ["$scope","$state","$rootScope","$translate", ($scope,$state,$rootScope,$translate) ->
+module.exports = ["$scope","$state","$rootScope","$translate","projectApi", ($scope,$state,$rootScope,$translate,api) ->
   $scope.init =->
     console.log "init"
   $scope.toogleProjectDropdown=true
-  $scope.projects=[
-    {
-      name:"1"
-      _id:"2"
-    }
-    {
-      name:"2"
-      _id:"2"
-    }
-    {
-      name:"2"
-      _id:"2"
-    }
-  ]
-
+  api.fetch().then((res) ->
+    $scope.projects = res.data
+  )
   $rootScope.$on('$stateChangeSuccess',
   (event, toState)->
     angular.forEach($scope.menu, (value)->

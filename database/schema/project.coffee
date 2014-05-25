@@ -33,8 +33,25 @@ Project = new Schema
       status:String
     }
   ]
-  renders:[String]
-  files: Schema.Types.Mixed
+  compiler:
+    type:String
+    default: "xelatex"
+  rootResourcePath:
+    type:String
+    default: "main.tex"
+  renderPath:String
+  files:[
+    {
+      name:String
+      path:String
+    }
+  ]
+  tex_files:[
+    {
+      path:String
+      content:String
+    }
+  ]
   meta: [
       {
         key: String

@@ -59,6 +59,14 @@ findBook = (request, reply) ->
     return reply({"flash":err}) if err
     reply(docs)
   )
+
+uploadImage = (request,reply)->
+  console.log request
+  flow = require(process.cwd() + "/database/plugins/flow")('books/images/')
+  flow.post request, (status, filename, original_filename, identifier) ->
+    console.log "POST", status, original_filename, identifier
+    reply([status, original_filename, identifier])
+
 ###*
  * ROUTER
 ###
@@ -92,6 +100,10 @@ module.exports = (server) ->
     method: "PUT"
     path: "#{prefix}/{id}"
     handler: updateBook
+  server.route
+    method: "POST"
+    path: "#{prefix}/{id}"
+    handler: uploadImage
   ###*
    * delete
   ###

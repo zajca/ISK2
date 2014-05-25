@@ -4,7 +4,9 @@ require "./flashService"
 
 module.exports = ["$httpProvider",($httpProvider) ->
 
-  $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest"
+  # $httpProvider.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest"
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With']
 
   $httpProvider.interceptors.push ["$q","$log","FlashService",($q,$log,FlashService) ->
     request: (config) ->

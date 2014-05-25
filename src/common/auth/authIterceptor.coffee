@@ -7,7 +7,8 @@ module.exports = ["$httpProvider",($httpProvider) ->
       request: (config) ->
         config.headers = config.headers or {}
         token = SessionService.get("token") || ls.get("token") || null
-        config.headers.Authorization = "Bearer " + token  if token
+        if config.auth != false
+          config.headers.Authorization = "Bearer " + token  if token
         config
       responseError: (response) ->
         $location.path "/login"  if response.status is 401

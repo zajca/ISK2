@@ -1,52 +1,116 @@
 <div class="container">
-<div class="row clearfix">
-<div class="col-md-12 column" >
-  <h3>
-    Statistiky
-  </h3>
-  <div class="col-md-3" style="text-align: center;">
-      <h3>Aktuálně</h3>
-      <p id="connections" style="font-size: 96px;line-height: 96px;">{{connections}}</p>
-      <h5>aktivních uživatelů</h5>
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{project.name}}</h2>
   </div>
-  <div class="col-md-9">
-    <legend>Real Time Návštěvy</legend>
-    <div class="row clearfix">
-      <div ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
-      <table ng-table="tableParams" class="table">
-          <tr ng-repeat="item in $data">
-              <td data-title="'URL'" sortable="'item.url.href'">
-                  {{item.url.href}}
-              </td>
-              <td data-title="'IP'" sortable="'ip'">
-                  {{item.ip}}
-              </td>
-              <td data-title="'ČAS'">
-                {{item.timestamp}}
-              </td>
-          </tr>
-      </table>
+</div>
+<div class="row">
+  <div class="col-md-4 col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="btn btn-success" ng-if="!project.book">Vytvořit knihu</div>
+          <div class="btn btn-success" ng-if="project.book">Editovat knihu</div>
+          <div class="btn btn-warning" ng-click="redirectToEdit()">Editor</div>
+          <div class="btn btn-danger">Smazat projekt</div>
+      </div>
     </div>
+     <div class="well">
+      <h4>Soubory</h4>
+      <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading"><input type="text" class="pull-right" placeholder="filter" ng-model="filter"/>
+        <h4>Process log</h4>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <div class="list-group-item" >Modal / Dialog</div>
+          <div class="list-group-item" >Datetime Examples</div>
+          <div class="list-group-item" >Data Grids</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
 
-    <legend>Návštěvnost stránek</legend>
-    <div class="row clearfix">
-    <div ng-click="pagesParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
-    <table ng-table="pagesParams" class="table">
-        <tr ng-repeat="item in $data">
-            <td data-title="'URL'" sortable="'item.url.href'">
-                {{item.url}}
-            </td>
-            <td data-title="'SHLEDNUTI'" sortable="'views'">
-                {{item.views}}
-            </td>
-        </tr>
-    </table>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Upload</h4>
+        <div ng-show="uploader.isHTML5">
+          <div class="well my-drop-zone" ng-file-over>
+              Přetáhněte soubory zde
+          </div>
+        </div>
+        <input ng-file-select type="file" multiple  />
+        <h4>Fronta {{ uploader.queue.length }}</h4>
+        <div>
+          <div class="progress" style="">
+              <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+          </div>
+          <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+              <span class="glyphicon glyphicon-upload"></span> Nahrát vše
+          </button>
+          <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+              <span class="glyphicon glyphicon-ban-circle"></span> Zrušit vše
+          </button>
+          <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+              <span class="glyphicon glyphicon-trash"></span> Smazat vše
+          </button>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+                <th width="50%">Název</th>
+                <th ng-show="uploader.isHTML5">Velikost</th>
+                <th ng-show="uploader.isHTML5">Progress</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in uploader.queue">
+              <td>
+                <strong>{{ item.file.name }}</strong>
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item.file, height: 100 }"></div>
+              </td>
+              <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+              <td ng-show="uploader.isHTML5">
+                <div class="progress" style="margin-bottom: 0;">
+                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                </div>
+              </td>
+              <td class="text-center">
+                <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+              </td>
+              <td nowrap>
+                <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                    <span class="glyphicon glyphicon-upload"></span> Nahrát
+                </button>
+                <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Zrušit
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                    <span class="glyphicon glyphicon-trash"></span> Smazat
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-<!--   <pre>
-  {{msg|json}}
-  {{pages|json}}
-  </pre> -->
 </div>
 </div>

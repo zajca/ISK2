@@ -1,4 +1,5 @@
 {
 	"html5Mode":"true",
-	"debug":"true"
+	"debug":"true",
+  "apiUrl":"/api/v1/"
 }

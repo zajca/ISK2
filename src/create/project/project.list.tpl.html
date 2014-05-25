@@ -1,0 +1,11 @@
+<div class="container">
+<div clas="col-md-12">
+  <div class="btn btn-primary" ui-sref="project.create">Nový</div>
+       <div class="well">
+      <h4>Projekty</h4>
+      <ul>
+        <li ng-repeat="project in projects" ui-sref="project.view({id:project._id})">{{project.name}}</li>
+      </ul>
+    </div>
+    </div>
+    </div>

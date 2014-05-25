@@ -19,6 +19,7 @@ require "./../../vendor/angular-carousel/dist/angular-carousel"
 require "./../../vendor/angular-strap/dist/angular-strap"
 require "./../../vendor/angular-strap/dist/angular-strap.tpl"
 require "./../../vendor/angular-socket-io/socket"
+require "./../../vendor/angular-file-upload/angular-file-upload"
 require "./../../vendor/angular-xeditable/dist/js/xeditable"
 require "./../../vendor/ngAnimate-animate.css/animate"
 require "./../../vendor/ng-tags-input/ng-tags-input.js"
@@ -71,6 +72,7 @@ module = angular.module("create", [
   'btford.socket-io'
   "filters"
   "project"
+  "angularFileUpload"
 ])
 
 
@@ -81,7 +83,7 @@ module.run (editableOptions) ->
 
 module.config ["$urlRouterProvider","$locationProvider","$logProvider","CONF","flowFactoryProvider"
   ($urlRouterProvider,$locationProvider,$logProvider,conf,flowFactoryProvider)->
-    $urlRouterProvider.otherwise "/"
+    $urlRouterProvider.otherwise "/project/list"
     $locationProvider.html5Mode(conf.html5Mode).hashPrefix('!')
     $logProvider.debugEnabled conf.debug
     flowFactoryProvider.defaults =
@@ -110,17 +112,6 @@ module.config require("./../common/httpInterceptor")
 module.run ["titleService",(titleService) ->
   titleService.setSuffix " | Create"
 ]
-
-# module.factory "create.api", ["$http","CONF","$log",($http,CONF,$log)->
-#   login:()->
-#     console.log "login test"
-#     http = $http.get("#{CONF.apiUrl}login")
-#     http.then (res)->
-#       $log.debug "valid login"
-#     ,(res)->
-#       $log.debug "invalid login",res
-#     http
-# ]
 
 module.factory 'socketIO', ["socketFactory",(socketFactory)->
   socketFactory()

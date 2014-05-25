@@ -1,0 +1,52 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Nový projekt</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Jméno</label>
+  <div class="col-md-6">
+      <input id="name" name="name" type="text" placeholder="Jméno projektu" class="form-control input-md" ng-model="project.name" required="">
+      <span class="help-block">Zadejte jméno projektu</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="surname">Hlavní soubor</label>
+  <div class="col-md-6">
+      <input id="surname" name="surname" type="text" placeholder="Název hlavního souboru" class="form-control input-md" ng-model="project.rootResourcePath" required="">
+      <span class="help-block">Název hlavního souboru</span>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="locale">Překladač</label>
+  <div class="col-md-6">
+    <select id="locale" name="locale" class="form-control" ng-model="project.compiler">
+      <option value="luatex">luaTeX</option>
+      <option value="pdflatex">pdfLaTeX</option>
+      <option value="xelatex">XeLaTeX</option>
+    </select>
+  </div>
+</div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="save"></label>
+  <div class="col-md-4">
+    <button id="save" name="save" ng-click="create(project)" class="btn btn-warning">Uložit</button>
+  </div>
+</div>
+<pre>
+{{project|json}}
+</pre>
+</fieldset>
+</form>
+</div>
+</div>
+</div>

@@ -4,7 +4,9 @@ mongooseFS = require("mongoose-fs")
 File = mongoose.Schema(
   name: String
   size: Number
-  creation_date: Date
+  creation_date:
+    type:Date
+    default: Date.now
 )
 File.plugin mongooseFS,
   keys: [

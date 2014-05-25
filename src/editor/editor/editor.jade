@@ -1,16 +1,37 @@
-div#index(ng-init="init()")
-.row
-  .col-lg-2
-    treecontrol.tree-light(tree-model='treedata', node-children='children', on-selection='showSelected(node)', selected-node='node2')
-      | {{node.label}}
-  .col-lg-5(ng-class="{smaller:showPrew}")
-    <div ui-ace="{useWrapMode : true,showGutter: false,theme:'twilight',mode: 'tex',onLoad: aceLoaded,onChange: aceChanged}"></div>
-  .col-lg-5(ng-class="{bigger:showPrew}")
-    nav
-      button.btn(ng-click="viewer.prevPage()").
-        <
-      button.btn(ng-click="viewer.nextPage()").
-        >
-      //span Page:{{currentPage}}/{{totalPages}}
-    //ng-pdf(template-url='/build/partials/editor/pdf.html' ng-cloak)
-    pdfviewer#viewer(src="{{pdfUrl}}" on-page-load='pageLoaded(page,total)' load-progress='loadProgress(loaded, total, state)' ng-cloak)
+div.container#index(ng-init="init()")
+  .row
+    .col-lg-12
+      .panel.panel-default
+          .btn.btn-info(ng-click="save()") Uložit
+          .btn.btn-info(ng-click="compile()") Compilovat
+  .row
+    .col-lg-12
+      .panel.panel-default
+          .panel-body
+            ul.inline-list
+              li(ng-repeat="file in project.tex_files" ui-sref="editor({pid:project._id,file:file.path})") {{file.path}}
+              li
+                input(ng-model="addNewFile" type="text" placeholder="Název nového souboru")
+              li
+                .btn.btn-success(ng-click="addFile(addNewFile)") Přidat
+  .row
+    .col-lg-6(ng-class="{smaller:showPrew}")
+      .panel.panel-default
+        .panel-body
+          <div ui-ace="{useWrapMode : true,showGutter: false,theme:'twilight',mode: 'tex',onLoad: aceLoaded,onChange: aceChanged}" ng-model="project.tex_files[fileActual].content"></div>
+    .col-lg-6(ng-class="{bigger:showPrew}")
+      .panel.panel-default
+        .panel-body
+          nav
+            button.btn(ng-click="viewer.prevPage()").
+              <
+            button.btn(ng-click="viewer.nextPage()").
+              >
+            //span Page:{{currentPage}}/{{totalPages}}
+          //ng-pdf(template-url='/build/partials/editor/pdf.html' ng-cloak)
+          pdfviewer#viewer(src="{{trustSrc(pdfUrl)}}" on-page-load='pageLoaded(page,total)' load-progress='loadProgress(loaded, total, state)' ng-cloak)
+  .row
+    .col-lg-12
+      .panel.panel-default
+        pre {{project|json}}
+        pre {{fileActual|json}}

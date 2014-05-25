@@ -61,15 +61,14 @@ module.exports = ["$window", "$location", "$rootScope", "localStorageService","S
           http
         )
       )
-
-    logout: ->
-      n = FlashService.show($translate("FLASH_REQUEST_FOR_LOGOUT"))
-      http = $http.get("#{CONF.apiUrl}logout")
+    loginTest:()->
+      console.log "login test"
+      http = $http.get("#{CONF.apiUrl}login")
       http.then (res)->
-        uncacheSession()
-        FlashService.done(n)
+        $log.debug "valid login"
       ,(res)->
-        uncacheSession()
-        FlashService.err(id,res.flash)
+        $log.debug "invalid login",res
       http
+    logout: ->
+      uncacheSession()
 ]

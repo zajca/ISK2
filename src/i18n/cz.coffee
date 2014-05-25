@@ -20,6 +20,7 @@ m.config ["$translateProvider",($translateProvider) ->
   FLASH_CREATING_BOOK: "Vytvářím knihu ,…"
   FLASH_CREATING_USER: "Vytvářím uživatele,…"
   FLASH_CREATING_PROJECT: "Vytvářím projekt,…"
+  FLASH_COMPILING_PROJECT: "Compiluji projekt,…"
   MENU_BOOKS: "Knihy"
   MENU_ADMINISTRATION: "Administrace"
   MENU_CREATE: "Tvorba knih"

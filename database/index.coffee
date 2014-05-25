@@ -17,7 +17,7 @@ module.exports =
   # acl:  require "./acl"
   user: require "./schema/user"
   book: require "./schema/book"
-  file: require "./plugins/gridfs"
+  gfs: require "./plugins/gridfs"
   session: require "./schema/session"
   order: require "./schema/order"
   troubleshot: require "./schema/troubleshot"

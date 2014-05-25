@@ -4,7 +4,8 @@ gm = require('gm')
 Boom = require('boom')
 db = require(process.cwd() + "/database")
 User = db.user
-File = db.file
+# File = db.file
+File=db.gfs
 
 loginUser = (request, reply) ->
   email = request.payload.email
@@ -35,14 +36,12 @@ init = (request,reply)->
     reply(user)
   )
 uploadGrid = (request,reply)->
-  gm(request.payload.file,request.payload.flowFilename).resize(200, 309).noProfile().toBuffer((err,buf)->
-    return reply(Boom.badImplementation()) if err
-    File.put(buf,request.payload.flowFilename,{},(err,doc)->
-      console.log "put cb"
-      reply(doc.currentChunk)
-    )
+  console.log request.payload
+  File.put(request.payload.file,request.payload.flowFilename,{},(err,doc)->
+    return reply(err) if err
+    console.log "put cb"
+    reply(doc)
   )
-
 ###*
  * ROUTER
 ###

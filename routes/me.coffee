@@ -3,6 +3,7 @@ db = require(process.cwd() + "/database")
 User = db.user
 Book = db.book
 Order = db.order
+Project = db.project
 ###*
  * ME METHODS
 ###
@@ -35,13 +36,40 @@ showBook  = (request, reply) ->
 updateBook  = (request, reply) ->
   reply.view "editor"
 listProject   = (request, reply) ->
-  reply.view "admin"
+  Project.find({owner:request.auth.credentials._id})
+  .populate('projects')
+  .exec((err, doc) ->
+    return reply({"flash":err}) if err
+    reply(doc)
+  )
 createProject   = (request, reply) ->
-  reply.view "admin"
+  project = new Project(request.payload)
+  User.findById(request.auth.credentials._id)
+  .exec((err, user) ->
+    return reply({"flash":err}) if err
+    project.owner = user
+    project.save((err, doc) ->
+      return reply({"flash":err}) if err
+      reply(doc)
+    )
+  )
 showProject   = (request, reply) ->
-  reply.view "admin"
+  Project.findById(request.params.id)
+  .exec((err, doc) ->
+    return reply({"flash":err}) if err
+    reply(doc)
+  )
 updateProject   = (request, reply) ->
-  reply.view "admin"
+  console.log "updateProject",request.payload._id
+  id = request.payload._id
+  delete request.payload._id
+  Project.update(
+    _id:id
+  ,request.payload
+  ).exec((err, docs) ->
+    return reply({"flash":err}) if err
+    reply(docs)
+  )
 addFavourite = (request, reply) ->
   User.findById(request.auth.credentials._id, (err, user) ->
     return reply({"flash":err}) if err
@@ -86,6 +114,13 @@ removeWhish = (request, reply) ->
       )
     )
   )
+
+uploadImage = (request,reply)->
+  console.log request
+  flow = require(process.cwd() + "/database/plugins/flow")('projects/'+request.params.id)
+  flow.post request, (status, filename, original_filename, identifier) ->
+    console.log "POST", status, original_filename, identifier
+    reply([status, original_filename, identifier])
 
 prefix="/api/v1/me"
 routes = [
@@ -144,6 +179,13 @@ routes = [
     config:
       auth: 'token'
     handler: createProject
+  }
+  {
+    method: "POST"
+    path: "#{prefix}/project/{id}/file"
+    config:
+      auth: 'token'
+    handler: uploadImage
   }
   {
     method: "PUT"

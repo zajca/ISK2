@@ -89,15 +89,17 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
         |Your browser is too old for this app
       .dim
     <![endif]-->
-    spinner(ng-cloak)
-    .topMenu(ng-cloak)
+    #alerts(ng-controller="FlashCtrl")
+      alert(ng-repeat="(key, alert) in alerts" type="{{alert.type}}" close="close($index)")
     .content(ng-cloak)
       .navbar.navbar-default(role='navigation', bs-navbar='bs-navbar')
         .navbar-header
-          a.navbar-brand(href='#') Brand
+          a.navbar-brand(href='#') Editor
           ul.nav.navbar-nav
-            li(ng-repeat='m in menu')
-              a {{m.name}}
+            li
+              a save
+            li
+              a compile
       .anim(ui-view='main')
 
     <!--[if lt IE 8]>
@@ -112,7 +114,9 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     script(type='text/javascript').
         $script([
           '/vendor/ng-pdfviewer/lib/compatibility.js',
-          '/vendor/ng-pdfviewer/lib/pdf.js'
+          '/vendor/ng-pdfviewer/lib/pdf.js',
+          '/vendor/ng-pdfviewer/lib/pdf.worker.js',
+          '/socket.io/socket.io.js'
         ],
         function(){
         $script([

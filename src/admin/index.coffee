@@ -19,6 +19,7 @@ require "./../../vendor/angular-carousel/dist/angular-carousel"
 require "./../../vendor/angular-strap/dist/angular-strap"
 require "./../../vendor/angular-strap/dist/angular-strap.tpl"
 require "./../../vendor/angular-socket-io/socket"
+require "./../../vendor/angular-file-upload/angular-file-upload"
 require "./../../vendor/angular-xeditable/dist/js/xeditable"
 require "./../../vendor/ngAnimate-animate.css/animate"
 require "./../../vendor/ng-tags-input/ng-tags-input.js"
@@ -77,6 +78,7 @@ module = angular.module("admin", [
   "ngTable"
   'btford.socket-io'
   "filters"
+  "angularFileUpload"
 ])
 
 
