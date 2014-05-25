@@ -22,14 +22,15 @@ div.container#index(ng-init="init()")
     .col-lg-6(ng-class="{bigger:showPrew}")
       .panel.panel-default
         .panel-body
+          a(ng-href="{{pdfUrl}}" target="_blank" ng-cloak) {{pdfUrl}}
           nav
             button.btn(ng-click="viewer.prevPage()").
               <
             button.btn(ng-click="viewer.nextPage()").
               >
-            //span Page:{{currentPage}}/{{totalPages}}
-          //ng-pdf(template-url='/build/partials/editor/pdf.html' ng-cloak)
-          pdfviewer#viewer(src="{{trustSrc(pdfUrl)}}" on-page-load='pageLoaded(page,total)' load-progress='loadProgress(loaded, total, state)' ng-cloak)
+          //- span Page:{{currentPage}}/{{totalPages}}
+          pdfviewer#viewer(src="{{pdfUrl}}" on-page-load='pageLoaded(page,total)' load-progress='loadProgress(loaded, total, state)' ng-cloak)
+          //- ng-pdf(template-url='/build/partials/editor/editor/pdf.html' ng-cloak)
   .row
     .col-lg-12
       .panel.panel-default

@@ -10,7 +10,7 @@ module.exports = ["$scope","bookApi","$stateParams","$fileUploader", ($scope,api
 
   uploader = $scope.uploader = $fileUploader.create(
     scope: $scope
-    url: "upload.php"
+    url: "/api/v1/file"
   )
   # ADDING FILTERS
   # Images only

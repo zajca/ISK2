@@ -35,13 +35,36 @@ init = (request,reply)->
     return console.log(err) if err
     reply(user)
   )
-uploadGrid = (request,reply)->
+currentpositionApi =
+  fs: require("fs")
+  multiparty: require("multiparty")
+  uploadFiles: (req, reply) ->
+    form = new currentpositionApi.multiparty.Form()
+    form.parse req.payload, (err, fields, files) ->
+      currentpositionApi.fs.readFile files.upload[0].path, (err, data) ->
+        newpath = __dirname + "/" + files.upload[0].originalFilename
+        currentpositionApi.fs.writeFile newpath, data, (err) ->
+          if err
+            console.log err
+          else
+            console.log files
+      console.log files
+
+upload = (request, reply) ->
   console.log request.payload
-  File.put(request.payload.file,request.payload.flowFilename,{},(err,doc)->
-    return reply(err) if err
-    console.log "put cb"
-    reply(doc)
-  )
+  Book.findById(536baa0fba1ef130751ea61a)
+  reply(request.payload.file)
+  # console.log request.payload.file.length
+#   if(params.file.mime !== 'image/png' && params.file.mime !== 'image/jpeg' && params.file.mime !== 'image/gif') {
+#     callbacks.uploadFailure('Wrong file type');
+#     return;
+# }
+#   File.put(request.payload.file,request.payload.flowFilename,{},(err,doc)->
+#     return reply(err) if err
+#     console.log "put cb"
+#     reply(doc)
+#   )
+  # reply(request)
 ###*
  * ROUTER
 ###
@@ -73,7 +96,8 @@ module.exports =
     server.route
       method: "POST"
       path: "#{prefix}/file"
-      handler: uploadGrid
+      config:
+        handler: upload
     server.route
       method: "GET"
       path: "#{prefix}/file"

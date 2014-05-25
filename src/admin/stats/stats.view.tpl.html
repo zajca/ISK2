@@ -1,33 +1,37 @@
 <div class="container">
 <div class="row clearfix">
 <div class="col-md-12 column" >
+
   <h3>
     Statistiky
   </h3>
   <div class="col-md-3" style="text-align: center;">
-      <h3>Aktuálně</h3>
-      <p id="connections" style="font-size: 96px;line-height: 96px;">{{connections}}</p>
-      <h5>aktivních uživatelů</h5>
+     <div class="well">
+        <h3>Aktuálně</h3>
+        <p id="connections" style="font-size: 96px;line-height: 96px;">{{connections}}</p>
+        <h5>aktivních uživatelů</h5>
+    </div>
   </div>
   <div class="col-md-9">
-    <legend>Real Time Návštěvy</legend>
-    <div class="row clearfix">
-      <div ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
-      <table ng-table="tableParams" class="table">
-          <tr ng-repeat="item in $data">
-              <td data-title="'URL'" sortable="'item.url.href'">
-                  {{item.url.href}}
-              </td>
-              <td data-title="'IP'" sortable="'ip'">
-                  {{item.ip}}
-              </td>
-              <td data-title="'ČAS'">
-                {{item.timestamp}}
-              </td>
-          </tr>
-      </table>
-    </div>
-
+   <div class="well">
+      <legend>Real Time Návštěvy</legend>
+      <div class="row clearfix">
+          <div ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
+          <table ng-table="tableParams" class="table">
+              <tr ng-repeat="item in $data">
+                  <td data-title="'URL'" sortable="'item.url.href'">
+                      {{item.url.href}}
+                  </td>
+                  <td data-title="'IP'" sortable="'ip'">
+                      {{item.ip}}
+                  </td>
+                  <td data-title="'ČAS'">
+                    {{item.timestamp}}
+                  </td>
+              </tr>
+          </table>
+    </div></div>
+ <div class="well">
     <legend>Návštěvnost stránek</legend>
     <div class="row clearfix">
     <div ng-click="pagesParams.sorting({})" class="btn btn-default pull-right">Zrušit seřazení</div>
@@ -40,9 +44,8 @@
                 {{item.views}}
             </td>
         </tr>
-    </table>
-    </div>
-    </div>
+    </table></div>
+    </div></div>
   </div>
 <!--   <pre>
   {{msg|json}}

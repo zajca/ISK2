@@ -23,12 +23,8 @@ Book = new Schema
     ref: "User"
   ]
   img:
-    small:
-      data: Buffer
-      contentType: String
-    big:
-      data: Buffer
-      contentType: String
+    data: Buffer
+    contentType: String
   genres:[
     text:String
   ]

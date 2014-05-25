@@ -96,10 +96,6 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
         .navbar-header
           a.navbar-brand(href='#') Editor
           ul.nav.navbar-nav
-            li
-              a save
-            li
-              a compile
       .anim(ui-view='main')
 
     <!--[if lt IE 8]>
@@ -113,9 +109,9 @@ html#ng-app(xmlns:ng='http://angularjs.org', lang='cs', dir='ltr', ng-controller
     script(type='text/javascript' src='/vendor/scriptjs/dist/script.js')
     script(type='text/javascript').
         $script([
-          '/vendor/ng-pdfviewer/lib/compatibility.js',
-          '/vendor/ng-pdfviewer/lib/pdf.js',
-          '/vendor/ng-pdfviewer/lib/pdf.worker.js',
+          //- '/vendor/pdfjs/build/generic/compatibility.js',
+          '/vendor/pdfjs/build/pdf.js',
+          '/vendor/pdfjs/build/pdf.worker.js',
           '/socket.io/socket.io.js'
         ],
         function(){

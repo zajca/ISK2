@@ -16,7 +16,13 @@ m.config(
         main:
           controller: "RegisterCtrl"
           templateUrl: "/build/partials/common/auth/register.tpl.html"
+    ).state("logout",
+      url: "/logout"
+      controller: ["authService",(authService)->
+        authService.logout()
+      ]
     )
+
   ]
 )
 module.exports = m
