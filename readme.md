@@ -1,4 +1,4 @@
-# Návod na isntalaci:#
+# Návod na instalaci:#
 
 ### Závislosti:
 ```
